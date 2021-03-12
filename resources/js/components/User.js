@@ -21,7 +21,7 @@ export const User = () => {
             <ul>
                 {Users.map((user, index) => (
                     <div key={index}>
-                        <li key={index}>{user.name}</li>
+                        <li key={index}>{user.email}</li>
 
                         <Link to={`/user/${user.id}`}>詳細</Link>
                     </div>

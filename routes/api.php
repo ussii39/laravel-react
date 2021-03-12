@@ -20,6 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/answer', 'App\Http\Controllers\TodoController@index');
+Route::get('/questions', 'App\Http\Controllers\QuestionsController@index');
+
+
+Route::post('answer', 'App\Http\Controllers\TodoController@store');
+
+Route::put('answer/{id}', 'App\Http\Controllers\TodoController@put');
+
+Route::post('/userpercent','App\Http\Controllers\UserController@store');
+
 Route::get('/user',function (Request $request) {
 	
 	$users = User::all();
@@ -56,6 +66,18 @@ Route::post("/login",function(){
      return [
       "user" => $user
      ];
+    }else{
+     abort(401);
+    }
+   });
+
+   Route::post("/logout",function(){
+    $token = request()->bearerToken();
+    $user = User::where("token",$token)->first();
+    if ($token && $user) {
+     $user->token = '';
+     $user->save();
+     return [];
     }else{
      abort(401);
     }
