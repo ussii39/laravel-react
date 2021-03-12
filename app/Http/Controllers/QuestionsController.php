@@ -9,6 +9,6 @@ class QuestionsController extends Controller
 {
     public function index(){
       $data = Questions::all();
-      return response($data);
+      return response($data,200);
     }
 }
