@@ -7,6 +7,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Top } from "./Top";
 import UserDetail from "./UserDetail";
 import { Login } from "./Login";
+import { Provider } from "react-redux";
+import createStore from "../store/store";
+import { ConnectedRouter } from "connected-react-router";
+import * as History from "history";
 
 const App = () => {
     return (
@@ -26,6 +30,17 @@ const App = () => {
     );
 };
 
+const history = History.createBrowserHistory();
+
+export const store = createStore(history);
+
 if (document.getElementById("app")) {
-    ReactDOM.render(<App />, document.getElementById("app"));
+    ReactDOM.render(
+        <Provider store={store}>
+            <ConnectedRouter history={history}>
+                <App />
+            </ConnectedRouter>
+        </Provider>,
+        document.getElementById("app")
+    );
 }
