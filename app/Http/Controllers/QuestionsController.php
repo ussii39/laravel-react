@@ -8,8 +8,7 @@ use App\models\Questions;
 class QuestionsController extends Controller
 {
     public function getquestion(){
-      $data = Questions::all()
-      ;
+      $data = Questions::all();
       return response($data);
     }
 }

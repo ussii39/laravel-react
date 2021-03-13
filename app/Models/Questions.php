@@ -9,6 +9,6 @@ class Questions extends Model
 {
    
     protected $fillable = [
-        'id', 'questions',
+        'id', 'question',
       ];
 }
