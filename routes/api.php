@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/answer', 'App\Http\Controllers\TodoController@index');
-Route::get('/questions', 'App\Http\Controllers\QuestionsController@index');
+Route::get('/questions', 'App\Http\Controllers\QuestionsController@getquestion');
 
 
 Route::post('answer', 'App\Http\Controllers\TodoController@store');
