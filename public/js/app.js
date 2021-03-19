@@ -2514,7 +2514,7 @@ var Top = function Top() {
       ,
       lineWidth: 14 // 円の線の太さ
       ,
-      progress: UserOwnPercent // 進捗（％）
+      progress: percent || UserOwnPercent // 進捗（％）
       ,
       progressColor: "cornflowerblue",
       進捗部分の色: true,

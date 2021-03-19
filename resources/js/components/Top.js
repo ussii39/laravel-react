@@ -151,7 +151,7 @@ export const Top = () => {
                 animate={true} // アニメーションをつけるかどうか
                 size={300} // 円の大きさ
                 lineWidth={14} // 円の線の太さ
-                progress={UserOwnPercent} // 進捗（％）
+                progress={percent || UserOwnPercent} // 進捗（％）
                 progressColor="cornflowerblue"
                 進捗部分の色
                 bgColor="whitesmoke" //円の進捗部分以外の色
