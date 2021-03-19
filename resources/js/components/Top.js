@@ -14,6 +14,8 @@ import { SendPercent, SetPutUserAnsweredId } from "../redux/operations";
 
 export const Top = () => {
     const [Questions, SetQuestions] = useState([""]);
+    const [CompletedQuestions, SetCompletdQuestions] = useState([""]);
+
     const [Answers, SetAnswers] = useState([""]);
     const [AnsweredId, SetAnsweredId] = useState(0);
     const [ResAnsweredId, SetResAnsweredId] = useState([""]);
@@ -40,6 +42,7 @@ export const Top = () => {
 
     useEffect(() => {
         getNotCompletedQuestions();
+        getQuestions();
     }, []);
     useEffect(() => {
         Sample();
@@ -117,16 +120,24 @@ export const Top = () => {
                         })
                         .then((res) => console.log(res.data));
                     ShowAnswer();
+                    getQuestions();
                     getNotCompletedQuestions();
-                    InputOneAnswers([""]);
+                    SetInputOneAnswers("");
                     inputRef.current.value = "";
                 }
             });
     };
+
+    const getQuestions = () => {
+        axios.get("api/questions").then((response) => {
+            SetQuestions(response.data);
+        });
+    };
+
     const getNotCompletedQuestions = () => {
         axios.get("/api/notcompleted").then((res) => {
             console.log(res.data);
-            SetQuestions(res.data);
+            SetCompletdQuestions(res.data);
         });
     };
 
@@ -155,7 +166,7 @@ export const Top = () => {
             />
             <div>
                 {/* answers.map completed で条件*/}
-                {Questions.map((question, index) => (
+                {CompletedQuestions.map((question, index) => (
                     <div key={index}>
                         {Answers.map((answer, index) => (
                             <div key={index}>

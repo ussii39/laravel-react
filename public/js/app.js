@@ -2331,38 +2331,43 @@ var Top = function Top() {
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
       _useState4 = _slicedToArray(_useState3, 2),
-      Answers = _useState4[0],
-      SetAnswers = _useState4[1];
+      CompletedQuestions = _useState4[0],
+      SetCompletdQuestions = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
       _useState6 = _slicedToArray(_useState5, 2),
-      AnsweredId = _useState6[0],
-      SetAnsweredId = _useState6[1];
+      Answers = _useState6[0],
+      SetAnswers = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState8 = _slicedToArray(_useState7, 2),
-      ResAnsweredId = _useState8[0],
-      SetResAnsweredId = _useState8[1];
+      AnsweredId = _useState8[0],
+      SetAnsweredId = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
       _useState10 = _slicedToArray(_useState9, 2),
-      AnotherAnsIds = _useState10[0],
-      SetAnotherAnsIds = _useState10[1];
+      ResAnsweredId = _useState10[0],
+      SetResAnsweredId = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
       _useState12 = _slicedToArray(_useState11, 2),
-      UserPercent = _useState12[0],
-      SetUserPercent = _useState12[1];
+      AnotherAnsIds = _useState12[0],
+      SetAnotherAnsIds = _useState12[1];
 
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState14 = _slicedToArray(_useState13, 2),
-      UserOwnPercent = _useState14[0],
-      SetUserOwnPercent = _useState14[1];
+      UserPercent = _useState14[0],
+      SetUserPercent = _useState14[1];
 
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState16 = _slicedToArray(_useState15, 2),
-      InputOneAnswer = _useState16[0],
-      SetInputOneAnswers = _useState16[1]; //percentはreduxを使わず、localとdbに保存
+      UserOwnPercent = _useState16[0],
+      SetUserOwnPercent = _useState16[1];
+
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState18 = _slicedToArray(_useState17, 2),
+      InputOneAnswer = _useState18[0],
+      SetInputOneAnswers = _useState18[1]; //percentはreduxを使わず、localとdbに保存
   //初回は数値が計算されないことを利用し、一度のローディングなら値を保持できる。
   //localは前の値を保持するので、リアルタイムの値の変化に強くない(localを引数としてhttp通信を行う等）が、前の値の保持に向いている。
 
@@ -2380,6 +2385,7 @@ var Top = function Top() {
   var inputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getNotCompletedQuestions();
+    getQuestions();
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     Sample();
@@ -2473,17 +2479,24 @@ var Top = function Top() {
           return console.log(res.data);
         });
         ShowAnswer();
+        getQuestions();
         getNotCompletedQuestions();
-        InputOneAnswers([""]);
+        SetInputOneAnswers("");
         inputRef.current.value = "";
       }
+    });
+  };
+
+  var getQuestions = function getQuestions() {
+    axios__WEBPACK_IMPORTED_MODULE_3___default().get("api/questions").then(function (response) {
+      SetQuestions(response.data);
     });
   };
 
   var getNotCompletedQuestions = function getNotCompletedQuestions() {
     axios__WEBPACK_IMPORTED_MODULE_3___default().get("/api/notcompleted").then(function (res) {
       console.log(res.data);
-      SetQuestions(res.data);
+      SetCompletdQuestions(res.data);
     });
   };
 
@@ -2522,7 +2535,7 @@ var Top = function Top() {
       showPercentageSymbol: true // 進捗の%部分を表示させるかどうか
 
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-      children: [Questions.map(function (question, index) {
+      children: [CompletedQuestions.map(function (question, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           children: [Answers.map(function (answer, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
