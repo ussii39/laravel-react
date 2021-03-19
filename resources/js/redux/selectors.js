@@ -23,3 +23,8 @@ export const getUserpercent = createSelector(
     [usersSelector],
     (state) => state.percent
 );
+
+export const getUserAnsweredIds = createSelector(
+    [usersSelector],
+    (state) => state.AnsweredIds
+);

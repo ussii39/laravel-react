@@ -3,6 +3,7 @@ import {
     signInAction,
     signOutAction,
     SendPercentAction,
+    PutUserAnsweredId,
 } from "./actions";
 import { push } from "connected-react-router";
 import axios from "axios";
@@ -29,6 +30,7 @@ export const signIn = (email, password) => {
                         name: data.user.name,
                         token: data.user.token,
                         percent: data.user.percent,
+                        AnsweredIds: data.user.AnsweredIds,
                     })
                 );
             });
@@ -43,11 +45,30 @@ export const SendPercent = (UserPercent, UserId) => {
                 headers: { "Content-Type": "application/json" },
             })
             .then((res) => {
-                console.log(res.data);
                 const userdata = res.data;
                 dispatch(
                     SendPercentAction({
                         percent: userdata.percent,
+                    })
+                );
+            });
+    };
+};
+
+export const SetPutUserAnsweredId = (ResAnsweredId, UserId) => {
+    return async (dispatch, getState) => {
+        axios
+            .put(
+                `api/setAnswerId/${UserId}`,
+                { AnsweredIds: [ResAnsweredId] },
+                { headers: { "Content-Type": "application/json" } }
+            )
+            .then((res) => {
+                const ResAnswerIdsLength = res.data;
+                console.log(ResAnswerIdsLength);
+                dispatch(
+                    PutUserAnsweredId({
+                        AnsweredIds: ResAnswerIdsLength.AnsweredIds,
                     })
                 );
             });
@@ -66,6 +87,7 @@ export const signout = () => {
             })
             .then((res) => {
                 dispatch(signOutAction());
+                dispatch(push("/login"));
                 console.log(res.data, "ログアウトしました");
             });
     };

@@ -9,6 +9,7 @@ export const signInAction = (userState) => {
             id: userState.id,
             token: userState.token,
             percent: userState.percent,
+            AnsweredIds: userState.AnsweredIds,
         },
     };
 };
@@ -19,6 +20,15 @@ export const SendPercentAction = (userState) => {
         type: "SEND_PERCENT",
         payload: {
             percent: userState.percent,
+        },
+    };
+};
+export const PUT_USER_ANSWERED_ID = "PUT_USER_ANSWERED_ID";
+export const PutUserAnsweredId = (userState) => {
+    return {
+        type: "PUT_USER_ANSWERED_ID",
+        payload: {
+            AnsweredIds: userState.AnsweredIds,
         },
     };
 };
@@ -34,6 +44,7 @@ export const signOutAction = () => {
             id: "",
             token: "",
             percent: "0",
+            AnsweredIds: [],
         },
     };
 };

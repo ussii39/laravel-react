@@ -19,11 +19,16 @@ export const UsersReducer = (state = initialState.users, action) => {
                 ...state,
                 ...action.payload,
             };
-        // case Actions.GET_LOGIN_USER:
-        //   return {
-        //     ...state,
-        //     ...action.payload,
-        //   };
+        case Actions.PUT_USER_ANSWERED_ID:
+            return {
+                ...state,
+                ...action.payload,
+            };
+        case Actions.GET_LOGIN_USER:
+            return {
+                ...state,
+                ...action.payload,
+            };
         default:
             return state;
     }

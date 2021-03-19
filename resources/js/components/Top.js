@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Circle from "react-circle";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -8,13 +8,23 @@ import {
     getUserpercent,
     getUsertoken,
     getUserId,
+    getUserAnsweredIds,
 } from "../redux/selectors";
-import { SendPercent } from "../redux/operations";
+import { SendPercent, SetPutUserAnsweredId } from "../redux/operations";
 
 export const Top = () => {
     const [Questions, SetQuestions] = useState([""]);
     const [Answers, SetAnswers] = useState([""]);
+    const [AnsweredId, SetAnsweredId] = useState(0);
+    const [ResAnsweredId, SetResAnsweredId] = useState([""]);
+    const [AnotherAnsIds, SetAnotherAnsIds] = useState([""]);
+    const [UserPercent, SetUserPercent] = useState("");
+    const [UserOwnPercent, SetUserOwnPercent] = useState("");
     const [InputOneAnswer, SetInputOneAnswers] = useState("");
+
+    //percentはreduxを使わず、localとdbに保存
+    //初回は数値が計算されないことを利用し、一度のローディングなら値を保持できる。
+    //localは前の値を保持するので、リアルタイムの値の変化に強くない(localを引数としてhttp通信を行う等）が、前の値の保持に向いている。
 
     const dispatch = useDispatch();
     const selector = useSelector((state) => state);
@@ -24,48 +34,100 @@ export const Top = () => {
     const token = getUsertoken(selector);
     const percent = getUserpercent(selector);
     const UserId = getUserId(selector);
+    const UserAnsweredIds = getUserAnsweredIds(selector);
+
+    const inputRef = useRef(null);
 
     useEffect(() => {
-        getQuestions();
-        ShowAnswer();
-        console.log(percent);
+        getNotCompletedQuestions();
     }, []);
+    useEffect(() => {
+        Sample();
+        GetUserInfo();
+        if (ResAnsweredId !== "") {
+            dispatch(SetPutUserAnsweredId(ResAnsweredId, UserId));
+        }
+    }, [ResAnsweredId]);
 
-    const ansersLength = Answers.filter((answer) => answer.id).length;
-    console.log(ansersLength);
+    useEffect(() => {
+        dispatch(SendPercent(UserPercent, UserId));
+    }, [UserPercent]);
 
-    const QuestionLength = Questions.filter((question) => question.id).length;
-    console.log(QuestionLength);
-    var result01 = ansersLength / QuestionLength;
-    var n = 2;
-    var result02 = Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
-    const UserPercent = result02 * 100;
-    console.log(UserPercent);
+    const Questionlength = Questions.map((que) => que.id).length;
 
+    const Sample = () => {
+        // const obj = JSON.parse(UserAnsweredIds);
+
+        // const a = AnsweredId.map((ob) => ob).length;
+        // console.log(a, "AnsweredId");
+        console.log(AnsweredId, "/", Questionlength);
+        var result01 = AnsweredId / Questionlength;
+        var n = 2;
+        var result02 = Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
+        const UPercent = result02 * 100;
+        SetUserPercent(UPercent);
+    };
     const InputAnswer = (e) => {
         SetInputOneAnswers(e.target.value);
     };
 
-    const PostUserAnswerPercent = () => {
-        const SendUserData = { percent: UserPercent, id: UserId };
-        axios
-            .post("/api/userpercent", SendUserData, {
-                headers: { "Content-Type": "application/json" },
-            })
-            .then((res) => console.log(res.data));
+    const GetUserInfo = () => {
+        axios.get("/api/user").then((res) => {
+            const UserAnswerIds = res.data.users;
+            const la = UserAnswerIds.map((use) => use.AnsweredIds);
+            const UserOwnPercent = UserAnswerIds.map((own) => own.percent);
+            SetUserOwnPercent(UserOwnPercent);
+            const u = JSON.parse(la);
+            console.log(u);
+            let v = [];
+            u.forEach((e, index) => {
+                if (e === [null]) {
+                    console.log("null");
+                    return;
+                }
+                v += e.length;
+            });
+            console.log(AnsweredId);
+            SetAnsweredId(v);
+        });
     };
 
-    const PostAnswer = () => {
+    const PostAnswer = (id) => {
         const data = { answer: InputOneAnswer };
+        const secondData = { completed: 1 };
         axios
             .post("/api/answer", data, {
                 headers: { "Content-Type": "application/json" },
             })
-            .then((res) => console.log(res.data));
-    };
+            .then((res) => {
+                const ResponseData = res.data;
 
-    const getQuestions = () => {
-        axios.get("/api/questions").then((res) => SetQuestions(res.data));
+                const ResIds = ResponseData.map((a) => a.id);
+                if (ResIds == id) {
+                    ResIds.forEach((re) => {
+                        SetResAnsweredId((prev) =>
+                            [re, ...prev].filter((y) => y !== "[null]")
+                        );
+                    });
+                    dispatch(SetPutUserAnsweredId(ResAnsweredId, UserId));
+                    GetUserInfo();
+                    axios
+                        .put(`api/question/${id}`, secondData, {
+                            headers: { "Content-Type": "application/json" },
+                        })
+                        .then((res) => console.log(res.data));
+                    ShowAnswer();
+                    getNotCompletedQuestions();
+                    InputOneAnswers([""]);
+                    inputRef.current.value = "";
+                }
+            });
+    };
+    const getNotCompletedQuestions = () => {
+        axios.get("/api/notcompleted").then((res) => {
+            console.log(res.data);
+            SetQuestions(res.data);
+        });
     };
 
     const ShowAnswer = () => {
@@ -78,7 +140,7 @@ export const Top = () => {
                 animate={true} // アニメーションをつけるかどうか
                 size={300} // 円の大きさ
                 lineWidth={14} // 円の線の太さ
-                progress={percent} // 進捗（％）
+                progress={UserOwnPercent} // 進捗（％）
                 progressColor="cornflowerblue"
                 進捗部分の色
                 bgColor="whitesmoke" //円の進捗部分以外の色
@@ -92,42 +154,44 @@ export const Top = () => {
                 showPercentageSymbol={true} // 進捗の%部分を表示させるかどうか
             />
             <div>
+                {/* answers.map completed で条件*/}
                 {Questions.map((question, index) => (
                     <div key={index}>
-                        <div>{question.question}</div>
-                        <input
-                            type="text"
-                            placeholder="答えを半角英数字で入力してください"
-                            onChange={InputAnswer}
-                        />
-                        <button type="submit" onClick={PostAnswer}>
-                            送信
+                        {Answers.map((answer, index) => (
+                            <div key={index}>
+                                {question.id == answer.id ? (
+                                    <div>
+                                        正解です！
+                                        <div>解説：{answer.title}</div>
+                                    </div>
+                                ) : (
+                                    <div></div>
+                                )}
+                            </div>
+                        ))}
+                        <div>
+                            Q:{question.id}
+                            {question.question}
+                        </div>
+                        <button
+                            type="Submit"
+                            onClick={() => {
+                                PostAnswer(question.id);
+                            }}
+                        >
+                            Q:{question.id}の答えを 送信
                         </button>
                     </div>
                 ))}
-                <button type="submit" onClick={ShowAnswer}>
-                    答えを表示する
-                </button>
+                <dir></dir>
                 <div>
-                    {Answers.map((answer, index) => (
-                        <div key={index}>
-                            <div className="answer-area">
-                                答えは{answer.answer}
-                            </div>
-                            <div className="description-area">
-                                解説{answer.title}
-                            </div>
-                        </div>
-                    ))}
+                    <input
+                        type="text"
+                        ref={inputRef}
+                        placeholder="答えを半角英数字で入力してください"
+                        onChange={InputAnswer}
+                    />
                 </div>
-                <button
-                    type="submit"
-                    onClick={() => {
-                        dispatch(SendPercent(UserPercent, UserId));
-                    }}
-                >
-                    結果を送信する
-                </button>
             </div>
         </div>
     );
