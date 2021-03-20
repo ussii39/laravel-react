@@ -13,7 +13,6 @@ import {
     getUserAnsweredIds,
 } from "../redux/selectors";
 import { SendPercent, SetPutUserAnsweredId } from "../redux/operations";
-import { set } from "lodash";
 
 export const Top = () => {
     const [Questions, SetQuestions] = useState([""]);
@@ -59,6 +58,8 @@ export const Top = () => {
         } else {
             console.log(ResAnsweredId, "はfalseyな値です");
         }
+        GetUserInfo();
+        Sample();
     }, [ResAnsweredId]);
 
     useEffect(() => {
@@ -196,7 +197,7 @@ export const Top = () => {
                 animate={true} // アニメーションをつけるかどうか
                 size={300} // 円の大きさ
                 lineWidth={14} // 円の線の太さ
-                progress={UserOwnPercent || 0} // 進捗（％）
+                progress={percent || UserOwnPercent} // 進捗（％）
                 progressColor="cornflowerblue" //進捗部分の色
                 bgColor="whitesmoke" //円の進捗部分以外の色
                 textColor="hotpink" //テキスト部分の色
