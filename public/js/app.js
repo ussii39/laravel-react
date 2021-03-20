@@ -2053,16 +2053,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _About__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./About */ "./resources/js/components/About.js");
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.js");
 /* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./User */ "./resources/js/components/User.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Top__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Top */ "./resources/js/components/Top.js");
 /* harmony import */ var _UserDetail__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./UserDetail */ "./resources/js/components/UserDetail.js");
 /* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Login */ "./resources/js/components/Login.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../store/store */ "./resources/js/store/store.js");
-/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
-/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
+/* harmony import */ var history__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
+/* harmony import */ var _CompletedQuestions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./CompletedQuestions */ "./resources/js/components/CompletedQuestions.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -2080,25 +2082,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__.Navbar, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Switch, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Navbar__WEBPACK_IMPORTED_MODULE_3__.Navbar, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Switch, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           path: "/",
           exact: true,
           component: _Top__WEBPACK_IMPORTED_MODULE_5__.Top
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           path: "/login",
           exact: true,
           component: _Login__WEBPACK_IMPORTED_MODULE_7__.Login
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+          path: "/completedQuestions",
+          component: _CompletedQuestions__WEBPACK_IMPORTED_MODULE_10__.CompletedQuestions
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           path: "/about",
           component: _About__WEBPACK_IMPORTED_MODULE_2__.About
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           path: "/user",
           exact: true,
           component: _User__WEBPACK_IMPORTED_MODULE_4__.User
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           path: "/user/:id",
           component: _UserDetail__WEBPACK_IMPORTED_MODULE_6__.default
         })]
@@ -2107,18 +2112,94 @@ var App = function App() {
   });
 };
 
-var history = history__WEBPACK_IMPORTED_MODULE_13__.createBrowserHistory();
+var history = history__WEBPACK_IMPORTED_MODULE_14__.createBrowserHistory();
 var store = (0,_store_store__WEBPACK_IMPORTED_MODULE_9__.default)(history);
 
 if (document.getElementById("app")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_8__.Provider, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_8__.Provider, {
     store: store,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(connected_react_router__WEBPACK_IMPORTED_MODULE_14__.ConnectedRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(connected_react_router__WEBPACK_IMPORTED_MODULE_15__.ConnectedRouter, {
       history: history,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(App, {})
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(App, {})
     })
   }), document.getElementById("app"));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/CompletedQuestions.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/CompletedQuestions.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CompletedQuestions": () => (/* binding */ CompletedQuestions)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var CompletedQuestions = function CompletedQuestions() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
+      _useState2 = _slicedToArray(_useState, 2),
+      CompletedQuestions = _useState2[0],
+      SetCompletdQuestions = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    ShowCompletdQuestions();
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return function () {
+      console.log("unmount");
+    };
+  }, []);
+
+  var ShowCompletdQuestions = function ShowCompletdQuestions() {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/completed").then(function (res) {
+      SetCompletdQuestions(res.data);
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: "\u6B63\u89E3\u3057\u305F\u554F\u984C\u306F\u4EE5\u4E0B\u3067\u3059"
+      }), CompletedQuestions.map(function (completed, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: ["Q:", completed.id]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            children: completed.question
+          })]
+        }, index);
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      to: "/",
+      children: "\u30E1\u30A4\u30F3\u30DA\u30FC\u30B8\u306B\u623B\u308B"
+    })]
+  });
+};
 
 /***/ }),
 
@@ -2292,9 +2373,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _redux_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/selectors */ "./resources/js/redux/selectors.js");
 /* harmony import */ var _redux_operations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/operations */ "./resources/js/redux/operations.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2323,6 +2407,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 var Top = function Top() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([""]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2339,7 +2425,7 @@ var Top = function Top() {
       Answers = _useState6[0],
       SetAnswers = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState8 = _slicedToArray(_useState7, 2),
       AnsweredId = _useState8[0],
       SetAnsweredId = _useState8[1];
@@ -2388,16 +2474,29 @@ var Top = function Top() {
     getQuestions();
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    Sample();
     GetUserInfo();
+    Sample();
 
-    if (ResAnsweredId !== "") {
-      dispatch((0,_redux_operations__WEBPACK_IMPORTED_MODULE_5__.SetPutUserAnsweredId)(ResAnsweredId, UserId));
+    if (ResAnsweredId.length > 1 || ResAnsweredId.length !== ResAnsweredId.length) {
+      console.log(ResAnsweredId, "を送りました。");
+      dispatch((0,_redux_operations__WEBPACK_IMPORTED_MODULE_5__.SetPutUserAnsweredId)(ResAnsweredId, UserId)); //0を送ってしまう原因
+    } else {
+      console.log(ResAnsweredId, "はfalseyな値です");
     }
   }, [ResAnsweredId]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    dispatch((0,_redux_operations__WEBPACK_IMPORTED_MODULE_5__.SendPercent)(UserPercent, UserId));
+    if (UserPercent > 0) {
+      console.log("0以外です。", UserPercent);
+      dispatch((0,_redux_operations__WEBPACK_IMPORTED_MODULE_5__.SendPercent)(UserPercent, UserId));
+    } else {
+      console.log("0です", UserPercent);
+    }
   }, [UserPercent]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return function () {
+      console.log("unmount");
+    };
+  }, []);
   var Questionlength = Questions.map(function (que) {
     return que.id;
   }).length;
@@ -2406,12 +2505,28 @@ var Top = function Top() {
     // const obj = JSON.parse(UserAnsweredIds);
     // const a = AnsweredId.map((ob) => ob).length;
     // console.log(a, "AnsweredId");
-    console.log(AnsweredId, "/", Questionlength);
-    var result01 = AnsweredId / Questionlength;
-    var n = 2;
-    var result02 = Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
-    var UPercent = result02 * 100;
-    SetUserPercent(UPercent);
+    var last = ResAnsweredId.filter(function (res) {
+      return res !== "";
+    }).length; // const last3 = AnotherAnsIds.map((anot) => anot).filter(
+    //     (ano) => ano !== null
+    // );
+    // console.log(last3, "last3");
+    // const yyy = last3.filter((res) => res !== null);
+    // console.log("last2の正解数は", `中身は${yyy}`);
+
+    if (last !== 0) {
+      var number = AnsweredId.length;
+      console.log("answeredは", number);
+      console.log("lastは", last);
+      console.log(number, "/", Questionlength);
+      console.log("正解数は", last);
+      var result01 = number / Questionlength;
+      var n = 2;
+      var result02 = Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
+      var UPercent = result02 * 100;
+      console.log(UPercent);
+      SetUserPercent(UPercent);
+    }
   };
 
   var InputAnswer = function InputAnswer(e) {
@@ -2419,28 +2534,32 @@ var Top = function Top() {
   };
 
   var GetUserInfo = function GetUserInfo() {
-    axios__WEBPACK_IMPORTED_MODULE_3___default().get("/api/user").then(function (res) {
-      var UserAnswerIds = res.data.users;
-      var la = UserAnswerIds.map(function (use) {
-        return use.AnsweredIds;
-      });
-      var UserOwnPercent = UserAnswerIds.map(function (own) {
-        return own.percent;
-      });
+    axios__WEBPACK_IMPORTED_MODULE_3___default().get("/api/user/".concat(UserId)).then(function (res) {
+      var UserAnswerIds = res.data.user;
+      var la = UserAnswerIds.AnsweredIds; // const la = UserAnswerIds.map((use) => use.AnsweredIds);
+
+      var UserOwnPercent = UserAnswerIds.percent;
       SetUserOwnPercent(UserOwnPercent);
       var u = JSON.parse(la);
-      console.log(u);
+      SetAnotherAnsIds(u);
+      console.log("u\u306F".concat(u, "\u3067\u3059"));
       var v = [];
       u.forEach(function (e, index) {
-        if (e === [null]) {
+        if (e === [[null]]) {
           console.log("null");
           return;
         }
 
-        v += e.length;
+        v = e.filter(function (o) {
+          return o !== null;
+        });
       });
-      console.log(AnsweredId);
-      SetAnsweredId(v);
+      console.log(v);
+      var y = v.filter(function (ttt) {
+        return ttt !== [""];
+      });
+      console.log("y", y);
+      SetAnsweredId([].concat(_toConsumableArray(AnsweredId), [y]));
     });
   };
 
@@ -2482,6 +2601,7 @@ var Top = function Top() {
         getQuestions();
         getNotCompletedQuestions();
         SetInputOneAnswers("");
+        Sample();
         inputRef.current.value = "";
       }
     });
@@ -2506,18 +2626,18 @@ var Top = function Top() {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((react_circle__WEBPACK_IMPORTED_MODULE_1___default()), {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)((react_circle__WEBPACK_IMPORTED_MODULE_1___default()), {
       animate: true // アニメーションをつけるかどうか
       ,
       size: 300 // 円の大きさ
       ,
       lineWidth: 14 // 円の線の太さ
       ,
-      progress: percent || UserOwnPercent // 進捗（％）
+      progress: UserOwnPercent || 0 // 進捗（％）
       ,
-      progressColor: "cornflowerblue",
-      進捗部分の色: true,
+      progressColor: "cornflowerblue" //進捗部分の色
+      ,
       bgColor: "whitesmoke" //円の進捗部分以外の色
       ,
       textColor: "hotpink" //テキスト部分の色
@@ -2534,20 +2654,14 @@ var Top = function Top() {
       ,
       showPercentageSymbol: true // 進捗の%部分を表示させるかどうか
 
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       children: [CompletedQuestions.map(function (question, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          children: [Answers.map(function (answer, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              children: question.id == answer.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                children: ["\u6B63\u89E3\u3067\u3059\uFF01", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                  children: ["\u89E3\u8AAC\uFF1A", answer.title]
-                })]
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {})
-            }, index);
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [ResAnsweredId.map(function (answer, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}, index);
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             children: ["Q:", question.id, question.question]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
             type: "Submit",
             onClick: function onClick() {
               PostAnswer(question.id);
@@ -2555,14 +2669,17 @@ var Top = function Top() {
             children: ["Q:", question.id, "\u306E\u7B54\u3048\u3092 \u9001\u4FE1"]
           })]
         }, index);
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("dir", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("dir", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
           type: "text",
           ref: inputRef,
           placeholder: "\u7B54\u3048\u3092\u534A\u89D2\u82F1\u6570\u5B57\u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044",
           onChange: InputAnswer
         })
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+      to: "/CompletedQuestions",
+      children: "\u6B63\u89E3\u3057\u305F\u554F\u984C\u3092\u898B\u308B"
     })]
   });
 };

@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import createStore from "../store/store";
 import { ConnectedRouter } from "connected-react-router";
 import * as History from "history";
+import { CompletedQuestions } from "./CompletedQuestions";
 
 const App = () => {
     return (
@@ -20,7 +21,10 @@ const App = () => {
                 <Switch>
                     <Route path="/" exact component={Top} />
                     <Route path="/login" exact component={Login} />
-
+                    <Route
+                        path="/completedQuestions"
+                        component={CompletedQuestions}
+                    />
                     <Route path="/about" component={About} />
                     <Route path="/user" exact component={User} />
                     <Route path="/user/:id" component={UserDetail} />

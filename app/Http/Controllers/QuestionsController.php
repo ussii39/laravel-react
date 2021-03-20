@@ -17,6 +17,11 @@ class QuestionsController extends Controller
       $product = Questions::select(['question','id','completed'])->where('completed', 0)->get();
       return response()->json($product);
     }
+    public function Completed(Request $request){
+
+      $product = Questions::select(['question','id','completed'])->where('completed', 1)->get();
+      return response()->json($product);
+    }
 
     public function put(Request $request,$id){
       $question = Questions::find($id);

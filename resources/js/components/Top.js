@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Circle from "react-circle";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 import {
     getUserisSignIn,
     getUsername,
@@ -11,13 +13,14 @@ import {
     getUserAnsweredIds,
 } from "../redux/selectors";
 import { SendPercent, SetPutUserAnsweredId } from "../redux/operations";
+import { set } from "lodash";
 
 export const Top = () => {
     const [Questions, SetQuestions] = useState([""]);
     const [CompletedQuestions, SetCompletdQuestions] = useState([""]);
 
     const [Answers, SetAnswers] = useState([""]);
-    const [AnsweredId, SetAnsweredId] = useState(0);
+    const [AnsweredId, SetAnsweredId] = useState([]);
     const [ResAnsweredId, SetResAnsweredId] = useState([""]);
     const [AnotherAnsIds, SetAnotherAnsIds] = useState([""]);
     const [UserPercent, SetUserPercent] = useState("");
@@ -45,53 +48,94 @@ export const Top = () => {
         getQuestions();
     }, []);
     useEffect(() => {
-        Sample();
         GetUserInfo();
-        if (ResAnsweredId !== "") {
-            dispatch(SetPutUserAnsweredId(ResAnsweredId, UserId));
+        Sample();
+        if (
+            ResAnsweredId.length > 1 ||
+            ResAnsweredId.length !== ResAnsweredId.length
+        ) {
+            console.log(ResAnsweredId, "を送りました。");
+            dispatch(SetPutUserAnsweredId(ResAnsweredId, UserId)); //0を送ってしまう原因
+        } else {
+            console.log(ResAnsweredId, "はfalseyな値です");
         }
     }, [ResAnsweredId]);
 
     useEffect(() => {
-        dispatch(SendPercent(UserPercent, UserId));
+        if (UserPercent > 0) {
+            console.log("0以外です。", UserPercent);
+            dispatch(SendPercent(UserPercent, UserId));
+        } else {
+            console.log("0です", UserPercent);
+        }
     }, [UserPercent]);
 
-    const Questionlength = Questions.map((que) => que.id).length;
+    useEffect(() => {
+        return () => {
+            console.log("unmount");
+        };
+    }, []);
 
+    const Questionlength = Questions.map((que) => que.id).length;
     const Sample = () => {
         // const obj = JSON.parse(UserAnsweredIds);
 
         // const a = AnsweredId.map((ob) => ob).length;
         // console.log(a, "AnsweredId");
-        console.log(AnsweredId, "/", Questionlength);
-        var result01 = AnsweredId / Questionlength;
-        var n = 2;
-        var result02 = Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
-        const UPercent = result02 * 100;
-        SetUserPercent(UPercent);
+        const last = ResAnsweredId.filter((res) => res !== "").length;
+
+        // const last3 = AnotherAnsIds.map((anot) => anot).filter(
+        //     (ano) => ano !== null
+        // );
+
+        // console.log(last3, "last3");
+        // const yyy = last3.filter((res) => res !== null);
+
+        // console.log("last2の正解数は", `中身は${yyy}`);
+
+        if (last !== 0) {
+            const number = AnsweredId.length;
+            console.log("answeredは", number);
+            console.log("lastは", last);
+            console.log(number, "/", Questionlength);
+
+            console.log("正解数は", last);
+            var result01 = number / Questionlength;
+            var n = 2;
+            var result02 =
+                Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
+            const UPercent = result02 * 100;
+            console.log(UPercent);
+            SetUserPercent(UPercent);
+        }
     };
+
     const InputAnswer = (e) => {
         SetInputOneAnswers(e.target.value);
     };
 
     const GetUserInfo = () => {
-        axios.get("/api/user").then((res) => {
-            const UserAnswerIds = res.data.users;
-            const la = UserAnswerIds.map((use) => use.AnsweredIds);
-            const UserOwnPercent = UserAnswerIds.map((own) => own.percent);
+        axios.get(`/api/user/${UserId}`).then((res) => {
+            let UserAnswerIds = res.data.user;
+            const la = UserAnswerIds.AnsweredIds;
+            // const la = UserAnswerIds.map((use) => use.AnsweredIds);
+            const UserOwnPercent = UserAnswerIds.percent;
             SetUserOwnPercent(UserOwnPercent);
             const u = JSON.parse(la);
-            console.log(u);
+            SetAnotherAnsIds(u);
+            console.log(`uは${u}です`);
             let v = [];
             u.forEach((e, index) => {
-                if (e === [null]) {
+                if (e === [[null]]) {
                     console.log("null");
                     return;
                 }
-                v += e.length;
+                v = e.filter((o) => o !== null);
             });
-            console.log(AnsweredId);
-            SetAnsweredId(v);
+            console.log(v);
+            const y = v.filter((ttt) => ttt !== [""]);
+            console.log("y", y);
+            SetAnsweredId([...AnsweredId, y]);
         });
     };
 
@@ -123,6 +167,7 @@ export const Top = () => {
                     getQuestions();
                     getNotCompletedQuestions();
                     SetInputOneAnswers("");
+                    Sample();
                     inputRef.current.value = "";
                 }
             });
@@ -151,9 +196,8 @@ export const Top = () => {
                 animate={true} // アニメーションをつけるかどうか
                 size={300} // 円の大きさ
                 lineWidth={14} // 円の線の太さ
-                progress={percent || UserOwnPercent} // 進捗（％）
-                progressColor="cornflowerblue"
-                進捗部分の色
+                progress={UserOwnPercent || 0} // 進捗（％）
+                progressColor="cornflowerblue" //進捗部分の色
                 bgColor="whitesmoke" //円の進捗部分以外の色
                 textColor="hotpink" //テキスト部分の色
                 textStyle={{
@@ -168,17 +212,8 @@ export const Top = () => {
                 {/* answers.map completed で条件*/}
                 {CompletedQuestions.map((question, index) => (
                     <div key={index}>
-                        {Answers.map((answer, index) => (
-                            <div key={index}>
-                                {question.id == answer.id ? (
-                                    <div>
-                                        正解です！
-                                        <div>解説：{answer.title}</div>
-                                    </div>
-                                ) : (
-                                    <div></div>
-                                )}
-                            </div>
+                        {ResAnsweredId.map((answer, index) => (
+                            <div key={index}></div>
                         ))}
                         <div>
                             Q:{question.id}
@@ -204,6 +239,7 @@ export const Top = () => {
                     />
                 </div>
             </div>
+            <Link to={"/CompletedQuestions"}>正解した問題を見る</Link>
         </div>
     );
 };

@@ -27,6 +27,8 @@ Route::get('/questions', 'App\Http\Controllers\QuestionsController@getquestion')
 
 Route::get('/notcompleted', 'App\Http\Controllers\QuestionsController@NotCompleted');
 
+Route::get('/completed', 'App\Http\Controllers\QuestionsController@Completed');
+
 Route::put('question/{id}', 'App\Http\Controllers\QuestionsController@put');
 
 Route::post('answer', 'App\Http\Controllers\TodoController@store');
