@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+.nav {
+    padding: 10px;
+}
+.typescript {
+    margin: 0px 30px;
+}
+
+.logout-area {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 100%;
+    }
+}

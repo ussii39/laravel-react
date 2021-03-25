@@ -29,6 +29,8 @@ Route::get('/notcompleted', 'App\Http\Controllers\QuestionsController@NotComplet
 
 Route::get('/completed', 'App\Http\Controllers\QuestionsController@Completed');
 
+Route::get('/random/question', 'App\Http\Controllers\QuestionsController@random');
+
 Route::put('question/{id}', 'App\Http\Controllers\QuestionsController@put');
 
 Route::post('answer', 'App\Http\Controllers\TodoController@store');
@@ -37,6 +39,8 @@ Route::put('setAnswerId/{id}', 'App\Http\Controllers\UserController@setUserIds')
 
 
 Route::put('answer/{id}', 'App\Http\Controllers\TodoController@put');
+
+Route::post('/userpoint', 'App\Http\Controllers\UserController@point');
 
 Route::post('/userpercent','App\Http\Controllers\UserController@store');
 

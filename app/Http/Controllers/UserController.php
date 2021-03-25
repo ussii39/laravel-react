@@ -14,7 +14,6 @@ class UserController extends Controller
         $user->percent = $request->percent;
         $user->timestamps = false; 
         $user->save();
-        
         return response($user);
     }
     public function setUserIds(Request $request,$id){
@@ -22,14 +21,27 @@ class UserController extends Controller
         // User::where('AnsweredIds', "null")->delete();
         $user->AnsweredIds = $request->AnsweredIds;
         $user->timestamps = false; 
+        $user->save();
+        $message = ["正解です"];
+        return  response($message);
         //   $rules = ['AnsweredIds' => 'required|AnsweredIds|unique:user,AnsweredIds'];
         // User::where('id', $id)->update(['user->AnsweredIds' => '']);
         //   $this->validate($request, $rules);
-          $user->save();
     }
+
     public function get(Request $request){
       $userId = User::select('AnsweredIds')->get();
 
         return response($userId);
+    }
+    public function point(Request $request){
+      
+      $id = $request->id;
+      $user = User::find($id);
+      $user->point = $request->point;
+      $user->timestamps = false; 
+      $user->save();
+      return response($user);
+
     }
 }

@@ -12,11 +12,12 @@ import createStore from "../store/store";
 import { ConnectedRouter } from "connected-react-router";
 import * as History from "history";
 import { CompletedQuestions } from "./CompletedQuestions";
+import "../../css/app.css";
 
 const App = () => {
     return (
         <Router>
-            <div>
+            <div id="app">
                 <Navbar />
                 <Switch>
                     <Route path="/" exact component={Top} />
@@ -41,9 +42,9 @@ export const store = createStore(history);
 if (document.getElementById("app")) {
     ReactDOM.render(
         <Provider store={store}>
-            <ConnectedRouter history={history}>
-                <App />
-            </ConnectedRouter>
+            {/* <ConnectedRouter history={history}> */}
+            <App />
+            {/* </ConnectedRouter> */}
         </Provider>,
         document.getElementById("app")
     );

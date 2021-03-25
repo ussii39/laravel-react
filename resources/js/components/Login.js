@@ -3,10 +3,12 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserisSignIn, getUsername, getUsertoken } from "../redux/selectors";
 import { GetloginUser, signIn, signout } from "../redux/operations";
+import { useHistory } from 'react-router';
 
 export const Login = () => {
     const dispatch = useDispatch();
     const selector = useSelector((state) => state);
+    const history = useHistory();
 
     const user = getUsername(selector);
     const isSignIn = getUserisSignIn(selector);
@@ -15,7 +17,11 @@ export const Login = () => {
     const [email, Setemail] = useState("");
     const [password, Setpassword] = useState("");
 
-    useEffect(() => {}, []);
+    useEffect(() => {
+        if(token !== ""){
+            history.push('/')
+        }
+    }, [token]);
 
     const handleChange = (e) => {
         Setemail(e.target.value);

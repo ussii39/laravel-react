@@ -1,0 +1,83 @@
+.top-container {
+    padding: 20px;
+}
+.circle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.score-area {
+    background-color: #ffffff;
+    padding: 20px 10px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.score {
+    color: #3c488a;
+    font-size: 20px;
+    font-weight: bold;
+}
+.question-area {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.question {
+    font-size: 6px;
+    font-weight: bold;
+}
+.question-subject {
+}
+.javascript {
+    background-color: #ffffff;
+    color: #fcf800e3;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.typescript {
+    background-color: #ffffff;
+    color: #5168f0;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0px 0px;
+}
+.basic {
+    color: #0e056e;
+}
+.normal {
+    color: #ec9d35;
+}
+.advance {
+    color: #ee2525;
+}
+.form-area {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+}
+.input-area {
+    display: flex;
+    justify-content: center;
+}
+.show-answer {
+    display: block !important;
+}
+
+@media screen and (max-width: 480px) {
+    .circle {
+    }
+    .question-area {
+    }
+}

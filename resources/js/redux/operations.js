@@ -4,6 +4,8 @@ import {
     signOutAction,
     SendPercentAction,
     PutUserAnsweredId,
+    GetuserInfo,
+    catchMessage,
 } from "./actions";
 import { push } from "connected-react-router";
 import axios from "axios";
@@ -33,6 +35,7 @@ export const signIn = (email, password) => {
                         AnsweredIds: data.user.AnsweredIds,
                     })
                 );
+                dispatch(push("/about"));
             });
     };
 };
@@ -57,6 +60,26 @@ export const SendPercent = (UserPercent, UserId) => {
 
 export const SetPutUserAnsweredId = (ResAnsweredId, UserId) => {
     return async (dispatch, getState) => {
+        const postAnsweredData = getState().users.AnsweredIds;
+        const lastAnswered = JSON.parse(postAnsweredData);
+        let lastAnsweredId = "";
+        lastAnswered.forEach((last) => {
+            lastAnsweredId = last.filter((las) => las !== null);
+        });
+        console.log(lastAnsweredId, "lastA");
+        let lastAnsweredid = "";
+
+        lastAnsweredId.forEach((re) => {
+            lastAnsweredid = re;
+        });
+
+        const nextAnsweredId = ResAnsweredId.filter((rr) => rr !== "");
+
+        console.log(lastAnsweredid, "eceptnull");
+        console.log(nextAnsweredId, "next");
+        const sendData = [...lastAnsweredId, ...nextAnsweredId];
+        console.log(sendData, "sendData");
+
         axios
             .put(
                 `api/setAnswerId/${UserId}`,
@@ -64,14 +87,40 @@ export const SetPutUserAnsweredId = (ResAnsweredId, UserId) => {
                 { headers: { "Content-Type": "application/json" } }
             )
             .then((res) => {
-                const ResAnswerIdsLength = res.data;
-                console.log(ResAnswerIdsLength);
-                dispatch(
-                    PutUserAnsweredId({
-                        AnsweredIds: ResAnswerIdsLength.AnsweredIds,
-                    })
-                );
+                const Res = res.data;
+                axios.get(`/api/user/${UserId}`).then((response) => {
+                    const UsersInfo = response.data.user;
+                    dispatch(
+                        PutUserAnsweredId({
+                            isSignIn: true,
+                            id: UsersInfo.id,
+                            name: UsersInfo.name,
+                            token: UsersInfo.token,
+                            percent: UsersInfo.percent,
+                            AnsweredIds: UsersInfo.AnsweredIds,
+                        })
+                    );
+                });
             });
+    };
+};
+
+export const getUserinfo = () => {
+    return async (dispatch, getState) => {
+        const UserId = getState().users.id;
+        axios.get(`/api/user/${UserId}`).then((response) => {
+            const Userstatus = response.data.user;
+            dispatch(
+                GetuserInfo({
+                    isSignIn: true,
+                    id: Userstatus.id,
+                    name: Userstatus.name,
+                    token: Userstatus.token,
+                    percent: Userstatus.percent,
+                    AnsweredIds: Userstatus.AnsweredIds,
+                })
+            );
+        });
     };
 };
 

@@ -5,7 +5,8 @@ const initialState = {
         name: "",
         token: "",
         percent: "0",
-        AnsweredIds: [],
+        AnsweredIds: "[]",
+        message: "",
     },
 };
 

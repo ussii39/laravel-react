@@ -28,3 +28,7 @@ export const getUserAnsweredIds = createSelector(
     [usersSelector],
     (state) => state.AnsweredIds
 );
+export const getResMessage = createSelector(
+    [usersSelector],
+    (state) => state.message
+);
