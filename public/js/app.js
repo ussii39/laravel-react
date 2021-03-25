@@ -2715,14 +2715,9 @@ var Top = function Top() {
 
             var Userspoint = UserAnswerIds.point;
             var point = Userspoint + 1 * 30;
-            var postuserpoint = {
+            axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/userpoint", {
               id: UserId,
               point: point
-            };
-            axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/userpoint", postuserpoint, {
-              headers: {
-                "Content-Type": "application/"
-              }
             }).then(function (res) {
               var UserPointData = res.data;
               SetUserPoint(UserPointData.point);
@@ -2736,7 +2731,7 @@ var Top = function Top() {
 
             var Userspoint = UserAnswerIds.point;
             var point = Userspoint + 1 * 60;
-            axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/userpoint", {
+            axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/userpoint/", {
               id: UserId,
               point: point
             }).then(function (res) {
