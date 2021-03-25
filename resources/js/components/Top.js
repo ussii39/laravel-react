@@ -259,7 +259,7 @@ export const Top = () => {
                             const Userspoint = UserAnswerIds.point;
                             const point = Userspoint + 1 * 60;
                             axios
-                                .post("/api/userpoint/", {
+                                .post("/api/userpoint", {
                                     id: UserId,
                                     point: point,
                                 })
