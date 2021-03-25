@@ -241,10 +241,10 @@ export const Top = () => {
                             // const la = UserAnswerIds.AnsweredIds;
                             const Userspoint = UserAnswerIds.point;
                             const point = Userspoint + 1 * 30;
+                            const postuserpoint = { id: UserId, point: point };
                             axios
-                                .post("/api/userpoint/", {
-                                    id: UserId,
-                                    point: point,
+                                .post("/api/userpoint", postuserpoint, {
+                                    headers: { "Content-Type": "application/" },
                                 })
                                 .then((res) => {
                                     const UserPointData = res.data;
