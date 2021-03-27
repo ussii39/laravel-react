@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Questions;
+use App\Models\User;
+// use Illuminate\Support\Arr;
 
 class QuestionsController extends Controller
 {
@@ -32,7 +34,13 @@ class QuestionsController extends Controller
     }
 
      public function random(Request $request){
-      $question = Questions::inRandomOrder()->take(3)->get();
+       $question = Questions::inRandomOrder()->take(3)->get();
+
+        // $user = User::find($id);
+        // $d = $user->AnsweredIds;
+        // $data = json_encode($d);
+        // $flattened = Arr::flatten($data);
+        // $question = Questions::select(['question','id','completed','subjects'])->where('id',$data)->get();
       return response($question);
   }
 }

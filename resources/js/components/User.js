@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/user.css";
 import img from "../../img/taihen.png";
+import typescript from "../../img/typescript.png";
+
 import {
     getUserisSignIn,
     getUsername,
@@ -16,6 +18,8 @@ export const User = () => {
     const [Users, setUsers] = useState([""]);
     const [UsersAnsweredId, setUsersAnsweredId] = useState([""]);
     const [UserPoint, setUserPoint] = useState([""]);
+    const [count, setCount] = useState(0);
+    const [modalIsOpen, setIsOpen] = useState(false);
 
     const dispatch = useDispatch();
     const selector = useSelector((state) => state);
@@ -25,7 +29,19 @@ export const User = () => {
     useEffect(() => {
         getUsers();
     }, []);
-    useEffect(() => {});
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCount((c) => c + 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
+    useEffect(() => {
+        console.log(count);
+        if (count == 4 && UserPoint > 100 && UserPoint < 200) {
+            setIsOpen(true);
+            console.log("モーダルが表示されました");
+        }
+    });
 
     const getUsers = () => {
         axios.get(`/api/user/${UserId}`).then((response) => {
@@ -41,8 +57,31 @@ export const User = () => {
             });
         });
     };
+    function Modal() {
+        return (
+            <div id="overlay" onClick={() => setIsOpen(false)}>
+                <div id="content">
+                    <div className="modal-item">アイテムを獲得しました!</div>
+                    <div className="modal-stamp-img-area">
+                        <img
+                            className="modal-typescript-stamp"
+                            src={typescript}
+                        />
+                    </div>
+                    <button
+                        className="modal-button"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        close
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div>
+            {modalIsOpen ? <Modal></Modal> : <div></div>}
             <div className="user-page">
                 <div className="user-info">ユーザー情報</div>
                 <div className="date">三月</div>
@@ -51,6 +90,74 @@ export const User = () => {
                         {UserPoint.map((user, index) => (
                             <div key={index}>
                                 {user > 100 ? (
+                                    user < 200 ? (
+                                        <div className="stamp">
+                                            <div className="stamp-img-area">
+                                                <img
+                                                    className="typescript-stamp"
+                                                    src={typescript}
+                                                />
+                                                <img
+                                                    className="stamp2"
+                                                    src={img}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="stamp">
+                                            <div className="stamp-img-area">
+                                                <img
+                                                    className="typescript-stamp"
+                                                    src={typescript}
+                                                />
+                                                <img
+                                                    className="stamp2-non-animation"
+                                                    src={img}
+                                                />
+                                            </div>
+                                        </div>
+                                    )
+                                ) : (
+                                    <div className="stamp">
+                                        <div className="stamp-img-area">
+                                            <img
+                                                className="typescript-stamp"
+                                                src={typescript}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                        {UserPoint.map((user, index) => (
+                            <div key={index}>
+                                {user > 500 ? (
+                                    <div className="stamp">
+                                        <div className="stamp-img-area">
+                                            <img src={img} />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="stamp">ス</div>
+                                )}
+                            </div>
+                        ))}
+                        {UserPoint.map((user, index) => (
+                            <div key={index}>
+                                {user > 700 ? (
+                                    <div className="stamp">
+                                        <div className="stamp-img-area">
+                                            <img src={img} />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="stamp">ス</div>
+                                )}
+                            </div>
+                        ))}
+                        {UserPoint.map((user, index) => (
+                            <div key={index}>
+                                {user > 900 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
                                             <img src={img} />
@@ -64,52 +171,42 @@ export const User = () => {
                         {UserPoint.map((user, index) => (
                             <div key={index}>
                                 {user > 1000 ? (
+                                    user < 1100 ? (
+                                        <div className="stamp">
+                                            <div className="stamp-img-area">
+                                                <img
+                                                    className="typescript-stamp"
+                                                    src={typescript}
+                                                />
+                                                <img
+                                                    className="stamp2"
+                                                    src={img}
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="stamp">
+                                            <div className="stamp-img-area">
+                                                <img
+                                                    className="typescript-stamp"
+                                                    src={typescript}
+                                                />
+                                                <img
+                                                    className="stamp2-non-animation"
+                                                    src={img}
+                                                />
+                                            </div>
+                                        </div>
+                                    )
+                                ) : (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img
+                                                className="typescript-stamp"
+                                                src={typescript}
+                                            />
                                         </div>
                                     </div>
-                                ) : (
-                                    <div className="stamp">ス</div>
-                                )}
-                            </div>
-                        ))}
-                        {UserPoint.map((user, index) => (
-                            <div key={index}>
-                                {user > 1200 ? (
-                                    <div className="stamp">
-                                        <div className="stamp-img-area">
-                                            <img src={img} />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="stamp">ス</div>
-                                )}
-                            </div>
-                        ))}
-                        {UserPoint.map((user, index) => (
-                            <div key={index}>
-                                {user > 1300 ? (
-                                    <div className="stamp">
-                                        <div className="stamp-img-area">
-                                            <img src={img} />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="stamp">ス</div>
-                                )}
-                            </div>
-                        ))}
-                        {UserPoint.map((user, index) => (
-                            <div key={index}>
-                                {user > 1400 ? (
-                                    <div className="stamp">
-                                        <div className="stamp-img-area">
-                                            <img src={img} />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="stamp">ス</div>
                                 )}
                             </div>
                         ))}
@@ -183,7 +280,7 @@ export const User = () => {
                                 {user > 2000 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -235,7 +332,7 @@ export const User = () => {
                                 {user > 2400 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -274,7 +371,7 @@ export const User = () => {
                                 {user > 2700 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -313,7 +410,7 @@ export const User = () => {
                                 {user > 3000 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -352,7 +449,7 @@ export const User = () => {
                                 {user > 3500 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -391,7 +488,7 @@ export const User = () => {
                                 {user > 4000 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -417,7 +514,7 @@ export const User = () => {
                                 {user > 4440 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (
@@ -456,7 +553,7 @@ export const User = () => {
                                 {user > 5000 ? (
                                     <div className="stamp">
                                         <div className="stamp-img-area">
-                                            <img src={img} />
+                                            <img className="stamp2" src={img} />
                                         </div>
                                     </div>
                                 ) : (

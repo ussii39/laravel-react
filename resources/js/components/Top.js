@@ -59,6 +59,7 @@ export const Top = () => {
     const inputRef = useRef(null);
 
     useEffect(() => {
+        GetUserInfo();
         getNotCompletedQuestions();
         getQuestions();
     }, []);
@@ -270,7 +271,6 @@ export const Top = () => {
                         });
                     }
                     ShowAnswer();
-                    getQuestions();
                     inputRef.current.value = "";
                     SetInputOneAnswers("");
                     getNotCompletedQuestions();
@@ -281,7 +281,55 @@ export const Top = () => {
 
     const getQuestions = () => {
         axios.get("api/random/question").then((response) => {
-            SetQuestions(response.data);
+            axios.get(`/api/user/${UserId}`).then((res) => {
+                let UserAnswerIds = res.data.user;
+                const jsonUserAnswerIds = JSON.parse(UserAnswerIds.AnsweredIds);
+
+                let UserAnsweredArray = [];
+                jsonUserAnswerIds.forEach((json) => {
+                    UserAnsweredArray = json;
+                });
+                const UserPoint = UserAnswerIds.point;
+                const Resquestion = response.data;
+
+                let filterUserAnsweredIds = [];
+                let id = "id";
+                UserAnsweredArray.forEach((arr, i) => {
+                    filterUserAnsweredIds[i] = { [id]: arr };
+                });
+
+                const test2 = filterUserAnsweredIds.map(
+                    (fillter) => fillter.id
+                );
+                const test = Resquestion.map((resquetion) => resquetion.id);
+                const array3 = test.filter((i) => test2.indexOf(i) == -1);
+
+                let FilterUserAnsweredIdsQuestions = [];
+                for (let i = 0; i < array3.length; i++) {
+                    console.log(array3[i]);
+                    const array = array3[i];
+                    // for (let arr of array3) {
+                    //     FilterUserAnsweredIdsQuestions[arr] = Resquestion.filter(
+                    //         (resquetion) => resquetion.id == arr
+                    //     );
+                    // }
+                    const rr = Resquestion.filter(
+                        (resquetion) => resquetion.id !== array
+                    );
+                    console.log(rr);
+                }
+
+                if (UserPoint > 100) {
+                    SetQuestions(Resquestion);
+                } else {
+                    console.log("UserPoint is 300以下です");
+                    const ResSubject = Resquestion.filter(
+                        (ressub) => ressub.subjects === "javascript"
+                    );
+                    console.log(ResSubject, "ResSubject");
+                    SetQuestions(ResSubject);
+                }
+            });
         });
     };
 
@@ -390,7 +438,7 @@ export const Top = () => {
                                     PostAnswer(question.id, question.subjects);
                                 }}
                             >
-                                Q:{question.id}の答えを 送信
+                                答えを 送信
                             </button>
                         </div>
                     ))}
