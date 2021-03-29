@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserisSignIn, getUsername, getUsertoken } from "../redux/selectors";
 import { GetloginUser, signIn, signout } from "../redux/operations";
-import { useHistory } from 'react-router';
+import { useHistory } from "react-router";
 
 export const Login = () => {
     const dispatch = useDispatch();
@@ -18,8 +18,8 @@ export const Login = () => {
     const [password, Setpassword] = useState("");
 
     useEffect(() => {
-        if(token !== ""){
-            history.push('/')
+        if (token !== "") {
+            history.push("/loading");
         }
     }, [token]);
 

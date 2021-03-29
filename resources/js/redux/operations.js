@@ -78,12 +78,14 @@ export const SetPutUserAnsweredId = (ResAnsweredId, UserId) => {
         console.log(lastAnsweredid, "eceptnull");
         console.log(nextAnsweredId, "next");
         const sendData = [...lastAnsweredId, ...nextAnsweredId];
-        console.log(sendData, "sendData");
-
+        const b = sendData.filter(function (x, i, self) {
+            return sendData.indexOf(x) === i;
+        });
+        console.log(b, "sendData");
         axios
             .put(
                 `api/setAnswerId/${UserId}`,
-                { AnsweredIds: [ResAnsweredId] },
+                { AnsweredIds: [b] },
                 { headers: { "Content-Type": "application/json" } }
             )
             .then((res) => {

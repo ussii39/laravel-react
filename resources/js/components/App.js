@@ -13,6 +13,8 @@ import { ConnectedRouter } from "connected-react-router";
 import * as History from "history";
 import { CompletedQuestions } from "./CompletedQuestions";
 import "../../css/app.css";
+import { select } from "./select";
+import { Loading } from "./Loading";
 
 const App = () => {
     return (
@@ -21,6 +23,9 @@ const App = () => {
                 <Navbar />
                 <Switch>
                     <Route path="/" exact component={Top} />
+                    <Route path="/loading" exact component={Loading} />
+
+                    <Route path="/select" exact component={select} />
                     <Route path="/login" exact component={Login} />
                     <Route
                         path="/completedQuestions"

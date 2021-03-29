@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../css/top.css";
 import { useHistory } from "react-router";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 import {
     getUserisSignIn,
@@ -140,7 +141,7 @@ export const Top = () => {
             console.log(number, "/", Questionlength);
 
             console.log("正解数は", last);
-            var result01 = number / Questionlength;
+            var result01 = number / 5;
             var n = 2;
             var result02 =
                 Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
@@ -298,32 +299,19 @@ export const Top = () => {
                     filterUserAnsweredIds[i] = { [id]: arr };
                 });
 
-                const test2 = filterUserAnsweredIds.map(
+                const filterUserAnsweredId = filterUserAnsweredIds.map(
                     (fillter) => fillter.id
                 );
-                const test = Resquestion.map((resquetion) => resquetion.id);
-                const array3 = test.filter((i) => test2.indexOf(i) == -1);
 
-                let FilterUserAnsweredIdsQuestions = [];
-                for (let i = 0; i < array3.length; i++) {
-                    console.log(array3[i]);
-                    const array = array3[i];
-                    // for (let arr of array3) {
-                    //     FilterUserAnsweredIdsQuestions[arr] = Resquestion.filter(
-                    //         (resquetion) => resquetion.id == arr
-                    //     );
-                    // }
-                    const rr = Resquestion.filter(
-                        (resquetion) => resquetion.id !== array
-                    );
-                    console.log(rr);
-                }
-
+                const array3 = Resquestion.filter(
+                    (i) => filterUserAnsweredId.indexOf(i.id) == -1
+                ); //送られてくる問題のIDと既に正解した問題のIDの差分の問題だけ取る処理
+                console.log(array3, "array3");
                 if (UserPoint > 100) {
-                    SetQuestions(Resquestion);
+                    SetQuestions(array3);
                 } else {
                     console.log("UserPoint is 300以下です");
-                    const ResSubject = Resquestion.filter(
+                    const ResSubject = array3.filter(
                         (ressub) => ressub.subjects === "javascript"
                     );
                     console.log(ResSubject, "ResSubject");
