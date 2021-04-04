@@ -137,6 +137,8 @@
         width: 49px;
         height: 40px;
         border-radius: 12px;
+        font-size: 1px;
+        letter-spacing: -1px;
     }
     .stamp-area-container {
         display: flex;

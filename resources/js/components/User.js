@@ -41,7 +41,7 @@ export const User = () => {
         if (count == 4 && UserPoint > 100 && UserPoint < 200) {
             setIsOpen(true);
             console.log("モーダルが表示されました");
-        } else if (count == 4 && UserPoint > 1000 && UserPoint < 1100) {
+        } else if (count == 4 && UserPoint >= 1000 && UserPoint < 1100) {
             setIsOpen(true);
             console.log("モーダルが表示されました");
         }
@@ -149,7 +149,7 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">500ポイント</div>
                                 )}
                             </div>
                         ))}
@@ -162,7 +162,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        700Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -175,13 +177,15 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        900Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
                         {UserPoint.map((user, index) => (
                             <div key={index}>
-                                {user > 1000 ? (
+                                {user >= 1000 ? (
                                     user < 1100 ? (
                                         <div className="stamp">
                                             <div className="stamp-img-area">
@@ -230,7 +234,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        1500Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -243,7 +249,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        1600Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -256,7 +264,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        1700Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -269,7 +279,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        1800Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -282,7 +294,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        1900Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -295,7 +309,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2000Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -308,7 +324,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2100Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -321,7 +339,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2200Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -334,7 +354,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2300Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -347,7 +369,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2400Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -360,7 +384,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2500Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -373,7 +399,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2600Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -386,7 +414,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2700Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -399,7 +429,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2800Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -412,7 +444,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        2900Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -425,7 +459,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        3000Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -438,7 +474,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        3200Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -451,7 +489,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        3400Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -464,7 +504,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        3500Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -477,7 +519,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        3600Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -490,7 +534,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        3700Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -503,7 +549,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        4000Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -516,7 +564,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        4100Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -529,7 +579,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        4400Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -542,7 +594,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        4600Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -555,7 +609,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        4800Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}
@@ -568,7 +624,9 @@ export const User = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="stamp">ス</div>
+                                    <div className="stamp">
+                                        5000Pでスタンプ獲得
+                                    </div>
                                 )}
                             </div>
                         ))}

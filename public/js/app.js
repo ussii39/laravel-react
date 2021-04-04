@@ -3437,7 +3437,7 @@ var User = function User() {
     if (count == 4 && UserPoint > 100 && UserPoint < 200) {
       setIsOpen(true);
       console.log("モーダルが表示されました");
-    } else if (count == 4 && UserPoint > 1000 && UserPoint < 1100) {
+    } else if (count == 4 && UserPoint >= 1000 && UserPoint < 1100) {
       setIsOpen(true);
       console.log("モーダルが表示されました");
     }
@@ -3553,7 +3553,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "500\u30DD\u30A4\u30F3\u30C8"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3568,7 +3568,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "700P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3583,12 +3583,12 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "900P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              children: user > 1000 ? user < 1100 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              children: user >= 1000 ? user < 1100 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                   className: "stamp-img-area",
@@ -3635,7 +3635,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "1500P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3650,7 +3650,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "1600P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3665,7 +3665,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "1700P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3680,7 +3680,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "1800P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3695,7 +3695,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "1900P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3711,7 +3711,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2000P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3726,7 +3726,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2100P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3741,7 +3741,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2200P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3756,7 +3756,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2300P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3772,7 +3772,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2400P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3787,7 +3787,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2500P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3802,7 +3802,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2600P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3818,7 +3818,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2700P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3833,7 +3833,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2800P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3848,7 +3848,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "2900P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3864,7 +3864,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "3000P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3879,7 +3879,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "3200P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3894,7 +3894,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "3400P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3910,7 +3910,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "3500P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3925,7 +3925,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "3600P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3940,7 +3940,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "3700P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3956,7 +3956,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "4000P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3971,7 +3971,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "4100P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -3987,7 +3987,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "4400P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -4002,7 +4002,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "4600P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -4017,7 +4017,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "4800P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           }), UserPoint.map(function (user, index) {
@@ -4033,7 +4033,7 @@ var User = function User() {
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "stamp",
-                children: "\u30B9"
+                children: "5000P\u3067\u30B9\u30BF\u30F3\u30D7\u7372\u5F97"
               })
             }, index);
           })]
@@ -4336,12 +4336,12 @@ var selectlang = function selectlang() {
         to: "/selectlang/python",
         children: "Python\u3078"
       })
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "python-question-area",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "python-question-area-unvisible",
+      children: ["1000\u30DD\u30A4\u30F3\u30C8\u4EE5\u4E0A\u3067\u958B\u653E", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "python-question-text",
         children: "Python\u3078"
-      })
+      })]
     })]
   });
 };
@@ -10087,7 +10087,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".select-lang-area {\r\n    width: 100%;\r\n    padding: 20px;\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    background-color: #fff;\r\n}\r\n.select-lang-text {\r\n    margin-bottom: 20px;\r\n}\r\n\r\n.typescript-question-area {\r\n    margin-bottom: 20px;\r\n    width: inherit;\r\n}\r\n.typescript-question-area a {\r\n    color: #fff;\r\n    background-color: rgb(44, 32, 209);\r\n    font-weight: bold;\r\n    display: block;\r\n    width: 200px;\r\n    margin: 0 auto;\r\n    border-radius: 18px;\r\n}\r\n\r\n.python-question-area {\r\n    margin-bottom: 20px;\r\n    width: inherit;\r\n}\r\n.python-question-area a {\r\n    display: block;\r\n    width: 200px;\r\n    margin: 0 auto;\r\n    color: #fff;\r\n    background-color: rgb(192, 235, 1);\r\n    font-weight: bold;\r\n    border-radius: 18px;\r\n}\r\n.python-question-text {\r\n    width: 200px;\r\n    margin: 0 auto;\r\n    border-radius: 18px;\r\n    border: 3px solid rgba(170, 164, 164, 0.795);\r\n    background: linear-gradient(-45deg, #ccc, #999);\r\n    color: #888;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".select-lang-area {\r\n    width: 100%;\r\n    padding: 20px;\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n    background-color: #fff;\r\n}\r\n.select-lang-text {\r\n    margin-bottom: 20px;\r\n    position: relative;\r\n}\r\n\r\n.typescript-question-area {\r\n    margin-bottom: 20px;\r\n    width: inherit;\r\n}\r\n.typescript-question-area a {\r\n    color: #fff;\r\n    background-color: rgb(44, 32, 209);\r\n    font-weight: bold;\r\n    display: block;\r\n    width: 200px;\r\n    margin: 0 auto;\r\n    border-radius: 18px;\r\n}\r\n\r\n.python-question-area {\r\n    margin-bottom: 20px;\r\n    width: inherit;\r\n}\r\n.python-question-area a {\r\n    display: block;\r\n    width: 200px;\r\n    margin: 0 auto;\r\n    color: #fff;\r\n    background-color: rgb(192, 235, 1);\r\n    font-weight: bold;\r\n    border-radius: 18px;\r\n}\r\n.python-question-area-unvisible {\r\n    margin-bottom: 20px;\r\n    width: inherit;\r\n    /* position: relative; */\r\n    z-index: 1;\r\n    color: #fff;\r\n}\r\n.python-question-text {\r\n    opacity: 0.8;\r\n    position: absolute;\r\n    width: 200px;\r\n    margin: 0 auto;\r\n    border-radius: 18px;\r\n    border: 3px solid rgba(170, 164, 164, 0.795);\r\n    background: linear-gradient(-45deg, #e7eef4, #999);\r\n    color: #888;\r\n    right: 0;\r\n    left: 0;\r\n    top: 177px;\r\n    z-index: -1;\r\n}\r\n@media screen and (max-width: 480px) {\r\n    .python-question-area-unvisible {\r\n        margin-bottom: 20px;\r\n        width: inherit;\r\n        position: relative;\r\n        z-index: 1;\r\n        color: #fff;\r\n    }\r\n    .python-question-text {\r\n        opacity: 0.8;\r\n        position: absolute;\r\n        width: 200px;\r\n        margin: 0 auto;\r\n        border-radius: 18px;\r\n        border: 3px solid rgba(170, 164, 164, 0.795);\r\n        background: linear-gradient(-45deg, #ccc, #999);\r\n        color: #888;\r\n        right: 0;\r\n        left: 0;\r\n        top: -2px;\r\n        z-index: -1;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10135,7 +10135,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#overlay {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    z-index: 1;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n#content {\r\n    z-index: 2;\r\n    width: 35%;\r\n    height: 40%;\r\n    padding: 10px;\r\n    border-radius: 12px;\r\n    background: #fff;\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n}\r\n\r\n.modal-item {\r\n    margin: 0 auto;\r\n    padding: 20px;\r\n    font-weight: bold;\r\n    color: rgb(51, 46, 46);\r\n}\r\n.modal-stamp-img-area {\r\n    /* display: block; */\r\n}\r\n.modal-typescript-stamp {\r\n    display: block;\r\n    /* margin: 0 auto; */\r\n    margin-left: auto; /* 【ポイント】*/\r\n    margin-right: auto; /* 【ポイント】*/\r\n    width: 100px;\r\n    height: 100px;\r\n    margin-bottom: 30px;\r\n}\r\n.modal-button {\r\n    font-weight: bold;\r\n    width: 120px;\r\n    margin: 0 auto;\r\n}\r\n.user-page {\r\n    display: flex;\r\n}\r\n.user-info {\r\n    width: 500px;\r\n}\r\n.stamp-area-container {\r\n}\r\n.stamp-area {\r\n    background-color: #fff;\r\n    color: rgb(163, 161, 161);\r\n    width: 862px;\r\n    margin: 0 auto;\r\n    border-radius: 20px;\r\n    border: 1px solid #d5dadf;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    padding: 10px;\r\n    flex-wrap: wrap;\r\n    margin: 0px 74px;\r\n}\r\n.stamp {\r\n    border: 1px solid #d5dadf;\r\n    width: 120px;\r\n    height: 100px;\r\n    position: relative;\r\n}\r\n.typescript-stamp {\r\n    width: 46px;\r\n    height: 40px;\r\n}\r\n.stamp-img-area img {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 0 auto;\r\n    width: 100px;\r\n    height: 100px;\r\n}\r\n.stamp2 {\r\n    position: absolute;\r\n    top: 2%;\r\n    right: 11px;\r\n    -webkit-animation: sample_anime02 2s;\r\n            animation: sample_anime02 2s;\r\n}\r\n.stamp2-non-animation {\r\n    position: absolute;\r\n    top: 2%;\r\n    right: 11px;\r\n}\r\n\r\n.stamp-img {\r\n    width: 10px;\r\n    height: 10px;\r\n}\r\n@-webkit-keyframes sample_anime02 {\r\n    0% {\r\n        /* visibility: visible; */\r\n        /* opacity: 0; */\r\n        width: 1000px;\r\n        height: 1000px;\r\n        transform: rotate(-180deg) scale(2.5);\r\n    }\r\n    100% {\r\n        /* visibility: visible; */\r\n        opacity: 1;\r\n        transform: rotate(0deg);\r\n    }\r\n}\r\n@keyframes sample_anime02 {\r\n    0% {\r\n        /* visibility: visible; */\r\n        /* opacity: 0; */\r\n        width: 1000px;\r\n        height: 1000px;\r\n        transform: rotate(-180deg) scale(2.5);\r\n    }\r\n    100% {\r\n        /* visibility: visible; */\r\n        opacity: 1;\r\n        transform: rotate(0deg);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .user-page {\r\n        display: flex;\r\n        flex-direction: column;\r\n        margin: 0 auto;\r\n        width: 100%;\r\n    }\r\n    .user-info {\r\n        width: 100%;\r\n    }\r\n    .stamp-area {\r\n        margin: 0px 0px;\r\n        display: flex;\r\n        margin: 0 25px;\r\n        width: 304px;\r\n        padding: 4px;\r\n    }\r\n    .stamp {\r\n        width: 49px;\r\n        height: 40px;\r\n        border-radius: 12px;\r\n    }\r\n    .stamp-area-container {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n    }\r\n\r\n    .stamp-img-area img {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        margin: 0 auto;\r\n        width: 40px;\r\n        height: 40px;\r\n        position: absolute;\r\n        top: 0px;\r\n        right: 4px;\r\n    }\r\n    .stamp2 {\r\n        -webkit-animation: sample_anime02 2s;\r\n                animation: sample_anime02 2s;\r\n    }\r\n    .typescript-stamp {\r\n        width: 46px;\r\n        height: 40px;\r\n    }\r\n    #content {\r\n        z-index: 2;\r\n        width: 50%;\r\n        height: 46%;\r\n        padding: 10px;\r\n        border-radius: 12px;\r\n        background: #fff;\r\n        display: flex;\r\n        justify-content: center;\r\n        flex-direction: column;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#overlay {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    z-index: 1;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n#content {\r\n    z-index: 2;\r\n    width: 35%;\r\n    height: 40%;\r\n    padding: 10px;\r\n    border-radius: 12px;\r\n    background: #fff;\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n}\r\n\r\n.modal-item {\r\n    margin: 0 auto;\r\n    padding: 20px;\r\n    font-weight: bold;\r\n    color: rgb(51, 46, 46);\r\n}\r\n.modal-stamp-img-area {\r\n    /* display: block; */\r\n}\r\n.modal-typescript-stamp {\r\n    display: block;\r\n    /* margin: 0 auto; */\r\n    margin-left: auto; /* 【ポイント】*/\r\n    margin-right: auto; /* 【ポイント】*/\r\n    width: 100px;\r\n    height: 100px;\r\n    margin-bottom: 30px;\r\n}\r\n.modal-button {\r\n    font-weight: bold;\r\n    width: 120px;\r\n    margin: 0 auto;\r\n}\r\n.user-page {\r\n    display: flex;\r\n}\r\n.user-info {\r\n    width: 500px;\r\n}\r\n.stamp-area-container {\r\n}\r\n.stamp-area {\r\n    background-color: #fff;\r\n    color: rgb(163, 161, 161);\r\n    width: 862px;\r\n    margin: 0 auto;\r\n    border-radius: 20px;\r\n    border: 1px solid #d5dadf;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    padding: 10px;\r\n    flex-wrap: wrap;\r\n    margin: 0px 74px;\r\n}\r\n.stamp {\r\n    border: 1px solid #d5dadf;\r\n    width: 120px;\r\n    height: 100px;\r\n    position: relative;\r\n}\r\n.typescript-stamp {\r\n    width: 46px;\r\n    height: 40px;\r\n}\r\n.stamp-img-area img {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 0 auto;\r\n    width: 100px;\r\n    height: 100px;\r\n}\r\n.stamp2 {\r\n    position: absolute;\r\n    top: 2%;\r\n    right: 11px;\r\n    -webkit-animation: sample_anime02 2s;\r\n            animation: sample_anime02 2s;\r\n}\r\n.stamp2-non-animation {\r\n    position: absolute;\r\n    top: 2%;\r\n    right: 11px;\r\n}\r\n\r\n.stamp-img {\r\n    width: 10px;\r\n    height: 10px;\r\n}\r\n@-webkit-keyframes sample_anime02 {\r\n    0% {\r\n        /* visibility: visible; */\r\n        /* opacity: 0; */\r\n        width: 1000px;\r\n        height: 1000px;\r\n        transform: rotate(-180deg) scale(2.5);\r\n    }\r\n    100% {\r\n        /* visibility: visible; */\r\n        opacity: 1;\r\n        transform: rotate(0deg);\r\n    }\r\n}\r\n@keyframes sample_anime02 {\r\n    0% {\r\n        /* visibility: visible; */\r\n        /* opacity: 0; */\r\n        width: 1000px;\r\n        height: 1000px;\r\n        transform: rotate(-180deg) scale(2.5);\r\n    }\r\n    100% {\r\n        /* visibility: visible; */\r\n        opacity: 1;\r\n        transform: rotate(0deg);\r\n    }\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    .user-page {\r\n        display: flex;\r\n        flex-direction: column;\r\n        margin: 0 auto;\r\n        width: 100%;\r\n    }\r\n    .user-info {\r\n        width: 100%;\r\n    }\r\n    .stamp-area {\r\n        margin: 0px 0px;\r\n        display: flex;\r\n        margin: 0 25px;\r\n        width: 304px;\r\n        padding: 4px;\r\n    }\r\n    .stamp {\r\n        width: 49px;\r\n        height: 40px;\r\n        border-radius: 12px;\r\n        font-size: 1px;\r\n        letter-spacing: -1px;\r\n    }\r\n    .stamp-area-container {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n    }\r\n\r\n    .stamp-img-area img {\r\n        display: flex;\r\n        justify-content: center;\r\n        align-items: center;\r\n        margin: 0 auto;\r\n        width: 40px;\r\n        height: 40px;\r\n        position: absolute;\r\n        top: 0px;\r\n        right: 4px;\r\n    }\r\n    .stamp2 {\r\n        -webkit-animation: sample_anime02 2s;\r\n                animation: sample_anime02 2s;\r\n    }\r\n    .typescript-stamp {\r\n        width: 46px;\r\n        height: 40px;\r\n    }\r\n    #content {\r\n        z-index: 2;\r\n        width: 50%;\r\n        height: 46%;\r\n        padding: 10px;\r\n        border-radius: 12px;\r\n        background: #fff;\r\n        display: flex;\r\n        justify-content: center;\r\n        flex-direction: column;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

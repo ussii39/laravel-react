@@ -58,7 +58,8 @@ export const selectlang = () => {
                     <Link to={"/selectlang/python"}>Pythonへ</Link>
                 </div>
             ) : (
-                <div className="python-question-area">
+                <div className="python-question-area-unvisible">
+                    1000ポイント以上で開放
                     <div className="python-question-text">Pythonへ</div>
                 </div>
             )}
