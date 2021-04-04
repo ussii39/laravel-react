@@ -10,6 +10,7 @@ export const signInAction = (userState) => {
             token: userState.token,
             percent: userState.percent,
             AnsweredIds: userState.AnsweredIds,
+            point: userState.point,
         },
     };
 };
@@ -20,6 +21,7 @@ export const SendPercentAction = (userState) => {
         type: "SEND_PERCENT",
         payload: {
             percent: userState.percent,
+            point: userState.point,
         },
     };
 };
@@ -35,6 +37,7 @@ export const GetuserInfo = (userState) => {
             token: userState.token,
             percent: userState.percent,
             AnsweredIds: userState.AnsweredIds,
+            point: userState.point,
         },
     };
 };

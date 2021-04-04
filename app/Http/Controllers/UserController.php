@@ -44,4 +44,13 @@ class UserController extends Controller
       return response($user);
 
     }
+    public function setUserId(Request $request,$id){
+      $user = User::find($id);
+      // User::where('AnsweredIds', "null")->delete();
+      $user->AnsweredIds = $request->AnsweredIds;
+      $user->timestamps = false; 
+      $user->save();
+      $message = ["正解です"];
+      return  response($message); 
+    }
 }

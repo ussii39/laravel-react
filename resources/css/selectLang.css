@@ -1,0 +1,49 @@
+.select-lang-area {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.select-lang-text {
+    margin-bottom: 20px;
+}
+
+.typescript-question-area {
+    margin-bottom: 20px;
+    width: inherit;
+}
+.typescript-question-area a {
+    color: #fff;
+    background-color: rgb(44, 32, 209);
+    font-weight: bold;
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 18px;
+}
+
+.python-question-area {
+    margin-bottom: 20px;
+    width: inherit;
+}
+.python-question-area a {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    color: #fff;
+    background-color: rgb(192, 235, 1);
+    font-weight: bold;
+    border-radius: 18px;
+}
+.python-question-text {
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 18px;
+    border: 3px solid rgba(170, 164, 164, 0.795);
+    background: linear-gradient(-45deg, #ccc, #999);
+    color: #888;
+}

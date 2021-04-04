@@ -11,16 +11,16 @@ export const select = () => {
                     <Link to={"/"}>問題を解く</Link>
                 </div>
                 <div className="selectlang">
-                    <Link to={"/"}>言語別に問題を解く</Link>
+                    <Link to={"/selectlang"}>言語別に問題を解く</Link>
                 </div>
                 <div className="selectlevel">
-                    <Link to={"/"}>難易度別に問題を解く</Link>
+                    <Link to={"/selectlevel"}>難易度別に問題を解く</Link>
                 </div>
                 <div className="view">
                     <Link to={"/user"}>成績を見る</Link>
                 </div>
                 <div className="viewquetions">
-                    <Link to={"/"}>正解した問題を見る</Link>
+                    <Link to={"/CompletedQuestions"}>正解した問題を見る</Link>
                 </div>
             </div>
         </div>

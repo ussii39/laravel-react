@@ -33,6 +33,7 @@ export const signIn = (email, password) => {
                         token: data.user.token,
                         percent: data.user.percent,
                         AnsweredIds: data.user.AnsweredIds,
+                        point: data.user.point,
                     })
                 );
                 dispatch(push("/about"));
@@ -40,9 +41,13 @@ export const signIn = (email, password) => {
     };
 };
 
-export const SendPercent = (UserPercent, UserId) => {
+export const SendPercent = (UserPercent, UserId, UserPoint) => {
     return async (dispatch) => {
-        const SendUserData = { percent: UserPercent, id: UserId };
+        const SendUserData = {
+            percent: UserPercent,
+            id: UserId,
+            point: UserPoint,
+        };
         axios
             .post("/api/userpercent", SendUserData, {
                 headers: { "Content-Type": "application/json" },
@@ -52,6 +57,7 @@ export const SendPercent = (UserPercent, UserId) => {
                 dispatch(
                     SendPercentAction({
                         percent: userdata.percent,
+                        point: userdata.point,
                     })
                 );
             });
@@ -84,7 +90,7 @@ export const SetPutUserAnsweredId = (ResAnsweredId, UserId) => {
         console.log(b, "sendData");
         axios
             .put(
-                `api/setAnswerId/${UserId}`,
+                `/api/setAnswerId/${UserId}`,
                 { AnsweredIds: [b] },
                 { headers: { "Content-Type": "application/json" } }
             )
@@ -100,6 +106,7 @@ export const SetPutUserAnsweredId = (ResAnsweredId, UserId) => {
                             token: UsersInfo.token,
                             percent: UsersInfo.percent,
                             AnsweredIds: UsersInfo.AnsweredIds,
+                            point: UsersInfo.point,
                         })
                     );
                 });
@@ -120,6 +127,7 @@ export const getUserinfo = () => {
                     token: Userstatus.token,
                     percent: Userstatus.percent,
                     AnsweredIds: Userstatus.AnsweredIds,
+                    point: Userstatus.point,
                 })
             );
         });

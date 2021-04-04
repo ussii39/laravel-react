@@ -28,7 +28,7 @@ export const getUserAnsweredIds = createSelector(
     [usersSelector],
     (state) => state.AnsweredIds
 );
-export const getResMessage = createSelector(
+export const getUserPoint = createSelector(
     [usersSelector],
-    (state) => state.message
+    (state) => state.point
 );

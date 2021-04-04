@@ -23,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/answer', 'App\Http\Controllers\TodoController@index');
 
 Route::get('/questions', 'App\Http\Controllers\QuestionsController@getquestion');
+Route::get('/question/python', 'App\Http\Controllers\QuestionsController@getpythonquestion');
 
 
 Route::get('/notcompleted', 'App\Http\Controllers\QuestionsController@NotCompleted');
@@ -37,6 +38,7 @@ Route::post('answer', 'App\Http\Controllers\TodoController@store');
 
 Route::put('setAnswerId/{id}', 'App\Http\Controllers\UserController@setUserIds');
 
+Route::put('selectlang/setAnswerId/{id}', 'App\Http\Controllers\UserController@setUserId');
 
 Route::put('answer/{id}', 'App\Http\Controllers\TodoController@put');
 

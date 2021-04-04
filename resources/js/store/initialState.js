@@ -6,7 +6,7 @@ const initialState = {
         token: "",
         percent: "0",
         AnsweredIds: "[]",
-        message: "",
+        point: "0",
     },
 };
 

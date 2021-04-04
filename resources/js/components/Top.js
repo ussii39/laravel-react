@@ -28,8 +28,9 @@ if (process.env.NODE_ENV !== "production") {
 }
 export const Top = () => {
     const [Questions, SetQuestions] = useState([""]);
+    const [Questionlength, SetQuestionLength] = useState([""]);
     const [CompletedQuestions, SetCompletdQuestions] = useState([""]);
-    const [message, Setmessage] = useState(["正解です！"]);
+    const [message, Setmessage] = useState(false);
     const [Answers, SetAnswers] = useState([""]);
     const [AnsweredId, SetAnsweredId] = useState([]);
     const [ResAnsweredId, SetResAnsweredId] = useState([""]);
@@ -37,7 +38,7 @@ export const Top = () => {
     const [SecondAnsIds, SetSecondAnsIds] = useState([""]);
 
     const [UserPercent, SetUserPercent] = useState("");
-    const [UserPoint, SetUserPoint] = useState("");
+    const [UserPoint, SetUserPoint] = useState(0);
     const [NowUserPoint, SetNowUserPoint] = useState("");
 
     const [UserOwnPercent, SetUserOwnPercent] = useState("");
@@ -63,10 +64,20 @@ export const Top = () => {
         GetUserInfo();
         getNotCompletedQuestions();
         getQuestions();
+        GetQuestionLength();
     }, []);
     useEffect(() => {
+        const userAnswer = JSON.parse(UserAnsweredIds);
+        let ll = [];
+        userAnswer.forEach((answer) => {
+            ll = answer.filter((l) => l !== null);
+        });
+        const u = ll.join("");
+        const uu = [...u];
+        console.log(uu, "uu");
+        SetSecondAnsIds(uu);
         // dispatch(getUserinfo());
-    });
+    }, []);
     useEffect(() => {
         // if (window.performance) {
         //     if (performance.navigation.type === 1) {
@@ -78,15 +89,6 @@ export const Top = () => {
         //     }
         // }
         dispatch(getUserinfo());
-        const userAnswer = JSON.parse(UserAnsweredIds);
-        let ll = [];
-        userAnswer.forEach((answer) => {
-            ll = answer.filter((l) => l !== null);
-        });
-        const u = ll.join("");
-        const uu = [...u];
-        console.log(uu);
-        SetSecondAnsIds(uu);
         GetUserInfo();
         Sample();
         if (
@@ -105,7 +107,7 @@ export const Top = () => {
     useEffect(() => {
         if (UserPercent > 0) {
             console.log("0以外です。", UserPercent);
-            dispatch(SendPercent(UserPercent, UserId));
+            dispatch(SendPercent(UserPercent, UserId, UserPoint));
         } else {
             console.log("0です", UserPercent);
         }
@@ -117,8 +119,9 @@ export const Top = () => {
         };
     }, []);
 
-    const Questionlength = Questions.map((que) => que.id).length;
+    const Questionleng = Questionlength.map((que) => que.id).length;
     const Sample = () => {
+        console.log(Questionleng, "Questionleng");
         // const obj = JSON.parse(UserAnsweredIds);
 
         // const a = AnsweredId.map((ob) => ob).length;
@@ -138,10 +141,10 @@ export const Top = () => {
             const number = AnsweredId.length;
             console.log("answeredは", number);
             console.log("lastは", last);
-            console.log(number, "/", Questionlength);
+            console.log(number, "/", Questionleng);
 
             console.log("正解数は", last);
-            var result01 = number / 5;
+            var result01 = number / Questionleng;
             var n = 2;
             var result02 =
                 Math.floor(result01 * Math.pow(10, n)) / Math.pow(10, n);
@@ -225,11 +228,13 @@ export const Top = () => {
 
                 const ResIds = ResponseData.map((a) => a.id);
                 if (ResIds == id) {
+                    Setmessage(true);
                     ResIds.forEach((re) => {
                         SetResAnsweredId((prev) =>
                             [re, ...prev].filter((y) => y !== "[null]")
                         );
                     });
+                    console.log("正解です");
                     dispatch(SetPutUserAnsweredId(ResAnsweredId, UserId));
                     GetUserInfo();
                     axios
@@ -262,6 +267,23 @@ export const Top = () => {
                             const point = Userspoint + 1 * 60;
                             axios
                                 .post("/api/userpoint/", {
+                                    id: UserId,
+                                    point: point,
+                                })
+                                .then((res) => {
+                                    const UserPointData = res.data;
+                                    SetUserPoint(UserPointData.point);
+                                });
+                        });
+                    }
+                    if (subjects === "python") {
+                        axios.get(`/api/user/${UserId}`).then((res) => {
+                            let UserAnswerIds = res.data.user;
+                            // const la = UserAnswerIds.AnsweredIds;
+                            const Userspoint = UserAnswerIds.point;
+                            const point = Userspoint + 1 * 60;
+                            axios
+                                .post("/api/userpoint", {
                                     id: UserId,
                                     point: point,
                                 })
@@ -331,6 +353,9 @@ export const Top = () => {
     const ShowAnswer = () => {
         axios.get("/api/answer").then((res) => SetAnswers(res.data));
     };
+    const GetQuestionLength = () => {
+        axios.get("/api/questions").then((res) => SetQuestionLength(res.data));
+    };
 
     return (
         <div className="top-container">
@@ -360,19 +385,26 @@ export const Top = () => {
                             <div className="question-area">
                                 <div className="question">
                                     <div className="question-subjects">
-                                        {question.subjects === "javascript" ? (
-                                            question.subjects ===
-                                            "typescript" ? (
-                                                <div></div>
-                                            ) : (
-                                                <div className="javascript">
-                                                    {question.subjects}
-                                                </div>
-                                            )
+                                        {question.subjects === "python" ? (
+                                            <div className="python">
+                                                {question.subjects}
+                                            </div>
                                         ) : (
+                                            <div></div>
+                                        )}
+                                        {question.subjects === "javascript" ? (
+                                            <div className="javascript">
+                                                {question.subjects}
+                                            </div>
+                                        ) : (
+                                            <div></div>
+                                        )}
+                                        {question.subjects === "typescript" ? (
                                             <div className="typescript">
                                                 {question.subjects}
                                             </div>
+                                        ) : (
+                                            <div></div>
                                         )}
                                     </div>
                                     <div>
@@ -397,14 +429,13 @@ export const Top = () => {
                                         ) : (
                                             <div></div>
                                         )}
+                                        {question.id}
                                         {question.question}
                                     </div>
                                     {SecondAnsIds.map((answer, index) => (
                                         <div key={index}>
                                             {answer == question.id ? (
-                                                <div className="answer-completed">
-                                                    正解してます！
-                                                </div>
+                                                <div>正解です</div>
                                             ) : (
                                                 <div></div>
                                             )}

@@ -15,6 +15,10 @@ import { CompletedQuestions } from "./CompletedQuestions";
 import "../../css/app.css";
 import { select } from "./select";
 import { Loading } from "./Loading";
+import { selectlevel } from "./selectlevel";
+import { selectlang } from "./sleectlang";
+import PythonQuestion from "./PythonQuestion";
+import TypescriptQuestion from "./TypescriptQuestion";
 
 const App = () => {
     return (
@@ -26,6 +30,20 @@ const App = () => {
                     <Route path="/loading" exact component={Loading} />
 
                     <Route path="/select" exact component={select} />
+                    <Route path="/selectlevel" exact component={selectlevel} />
+
+                    <Route path="/selectlang" exact component={selectlang} />
+                    <Route
+                        path="/selectlang/typescript"
+                        exact
+                        component={TypescriptQuestion}
+                    />
+                    <Route
+                        path="/selectlang/python"
+                        exact
+                        component={PythonQuestion}
+                    />
+
                     <Route path="/login" exact component={Login} />
                     <Route
                         path="/completedQuestions"

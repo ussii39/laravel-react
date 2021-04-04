@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {
+    getUserisSignIn,
+    getUsername,
+    getUserpercent,
+    getUsertoken,
+    getUserId,
+    getUserAnsweredIds,
+    getResMessage,
+} from "../redux/selectors";
+import { useDispatch, useSelector } from "react-redux";
 
 export const CompletedQuestions = () => {
     const [CompletedQuestions, SetCompletdQuestions] = useState([""]);
+    const selector = useSelector((state) => state);
+    const UserId = getUserId(selector);
 
     useEffect(() => {
         ShowCompletdQuestions();
@@ -16,8 +28,18 @@ export const CompletedQuestions = () => {
     }, []);
 
     const ShowCompletdQuestions = () => {
-        axios.get("/api/completed").then((res) => {
-            SetCompletdQuestions(res.data);
+        axios.get("/api/questions").then((res) => {
+            axios.get(`/api/user/${UserId}`).then((response) => {
+                let UserData = response.data.user;
+                const UserAnswerIds = UserData.AnsweredIds;
+                const eceptjson = JSON.parse(UserAnswerIds);
+                let flatArray = eceptjson.flat();
+                const questionIds = res.data;
+                const FilteredQuestions = questionIds.filter(
+                    (question, i) => flatArray.indexOf(question.id) !== -1
+                );
+                SetCompletdQuestions(FilteredQuestions);
+            });
         });
     };
 

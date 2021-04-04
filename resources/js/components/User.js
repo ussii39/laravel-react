@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../../css/user.css";
 import img from "../../img/taihen.png";
 import typescript from "../../img/typescript.png";
+import python from "../../img/python.png";
 
 import {
     getUserisSignIn,
@@ -40,6 +41,9 @@ export const User = () => {
         if (count == 4 && UserPoint > 100 && UserPoint < 200) {
             setIsOpen(true);
             console.log("モーダルが表示されました");
+        } else if (count == 4 && UserPoint > 1000 && UserPoint < 1100) {
+            setIsOpen(true);
+            console.log("モーダルが表示されました");
         }
     });
 
@@ -63,10 +67,17 @@ export const User = () => {
                 <div id="content">
                     <div className="modal-item">アイテムを獲得しました!</div>
                     <div className="modal-stamp-img-area">
-                        <img
-                            className="modal-typescript-stamp"
-                            src={typescript}
-                        />
+                        {UserPoint >= 1000 ? (
+                            <img
+                                className="modal-typescript-stamp"
+                                src={python}
+                            />
+                        ) : (
+                            <img
+                                className="modal-typescript-stamp"
+                                src={typescript}
+                            />
+                        )}
                     </div>
                     <button
                         className="modal-button"
@@ -176,7 +187,7 @@ export const User = () => {
                                             <div className="stamp-img-area">
                                                 <img
                                                     className="typescript-stamp"
-                                                    src={typescript}
+                                                    src={python}
                                                 />
                                                 <img
                                                     className="stamp2"
@@ -189,7 +200,7 @@ export const User = () => {
                                             <div className="stamp-img-area">
                                                 <img
                                                     className="typescript-stamp"
-                                                    src={typescript}
+                                                    src={python}
                                                 />
                                                 <img
                                                     className="stamp2-non-animation"
@@ -203,7 +214,7 @@ export const User = () => {
                                         <div className="stamp-img-area">
                                             <img
                                                 className="typescript-stamp"
-                                                src={typescript}
+                                                src={python}
                                             />
                                         </div>
                                     </div>

@@ -32,6 +32,22 @@
 }
 .question-subject {
 }
+.python {
+    background: linear-gradient(
+        153deg,
+        blue 0%,
+        blue 50%,
+        rgb(255, 251, 0) 50%,
+        rgb(251, 255, 0) 100%
+    );
+    color: #fff;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 15px;
+}
 .javascript {
     background-color: #ffffff;
     color: #fcf800e3;
