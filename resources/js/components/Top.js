@@ -328,11 +328,17 @@ export const Top = () => {
                 const array3 = Resquestion.filter(
                     (i) => filterUserAnsweredId.indexOf(i.id) == -1
                 ); //送られてくる問題のIDと既に正解した問題のIDの差分の問題だけ取る処理
-                console.log(array3, "array3");
-                if (UserPoint > 100) {
+                if (UserPoint > 100 && UserPoint < 1000) {
+                    const FilterTypeScript = array3.filter(
+                        (ressub) => ressub.subjects !== "python"
+                    );
+                    console.log(FilterTypeScript, "FilterTypeScript");
+                    SetQuestions(FilterTypeScript);
+                } else if (UserPoint >= 1000) {
+                    console.log(array3, "array3");
                     SetQuestions(array3);
                 } else {
-                    console.log("UserPoint is 300以下です");
+                    console.log("UserPoint is 100以下です");
                     const ResSubject = array3.filter(
                         (ressub) => ressub.subjects === "javascript"
                     );
