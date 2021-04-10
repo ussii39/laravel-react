@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -53,10 +54,32 @@ class UserController extends Controller
       $message = ["正解です"];
       return  response($message); 
     }
-    public function getUser(Request $request){
 
+    public function getUser(Request $request){
       $token = $request->token;
       $getUserData = User::where("token",$token)->get();
       return  response($getUserData);
+    }
+
+    public function register(Request $request){
+
+    $email = $request->email;
+    $check = User::where("email",$email)->first(); 
+      if(!$check){
+        $token = Str::random(20);
+        $user = User::create([
+          'name' => $request->name,
+          'email' => $request->email,
+          'password' => bcrypt($request->password),
+          'percent' => 0,
+          'AnsweredIds' =>"[[null]]",
+          'point' => 0,
+          'token' => $token
+          ]);
+          $user->save();
+          return  response($user);
+        }else{
+          return response("既に登録されています");
+        }
     }
 }
