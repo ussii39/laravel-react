@@ -54,6 +54,8 @@ Route::get('/usersId', 'App\Http\Controllers\UserController@get');
 
 Route::post('/users', 'App\Http\Controllers\UserController@getUser');
 
+Route::post('/logout', 'App\Http\Controllers\UserController@logout');
+
 Route::get('/user',function (Request $request) {
 	
 	$users = User::all();
@@ -90,18 +92,6 @@ Route::post("/login",function(){
      return [
       "user" => $user
      ];
-    }else{
-     abort(401);
-    }
-   });
-
-   Route::post("/logout",function(){
-    $token = request()->bearerToken();
-    $user = User::where("token",$token)->first();
-    if ($token && $user) {
-     $user->token = '';
-     $user->save();
-     return [];
     }else{
      abort(401);
     }

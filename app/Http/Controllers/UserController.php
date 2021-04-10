@@ -82,4 +82,16 @@ class UserController extends Controller
           return response("既に登録されています");
         }
     }
+
+    public function logout(Request $request){
+      $token =  $request->token;
+      $user = User::where("token",$token)->first();
+      if ($token && $user) {
+       $user->token = '';
+       $user->save();
+       return response($user);
+      }else{
+       abort(401);
+      }
+    }
 }
