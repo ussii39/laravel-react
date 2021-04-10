@@ -53,4 +53,10 @@ class UserController extends Controller
       $message = ["正解です"];
       return  response($message); 
     }
+    public function getUser(Request $request){
+
+      $token = $request->token;
+      $getUserData = User::where("token",$token)->get();
+      return  response($getUserData);
+    }
 }

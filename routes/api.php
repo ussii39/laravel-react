@@ -20,11 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['middleware' => ['api', 'cors']], function(){
+    
 Route::get('/answer', 'App\Http\Controllers\TodoController@index');
 
 Route::get('/questions', 'App\Http\Controllers\QuestionsController@getquestion');
-Route::get('/question/python', 'App\Http\Controllers\QuestionsController@getpythonquestion');
 
+Route::get('/question/python', 'App\Http\Controllers\QuestionsController@getpythonquestion');
 
 Route::get('/notcompleted', 'App\Http\Controllers\QuestionsController@NotCompleted');
 
@@ -47,6 +49,9 @@ Route::post('/userpoint', 'App\Http\Controllers\UserController@point');
 Route::post('/userpercent','App\Http\Controllers\UserController@store');
 
 Route::get('/usersId', 'App\Http\Controllers\UserController@get');
+
+Route::post('/users', 'App\Http\Controllers\UserController@getUser');
+
 Route::get('/user',function (Request $request) {
 	
 	$users = User::all();
@@ -99,3 +104,4 @@ Route::post("/login",function(){
      abort(401);
     }
    });
+});
