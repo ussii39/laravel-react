@@ -83,7 +83,7 @@ class UserController extends Controller
           'percent' => 0,
           'AnsweredIds' =>"[[null]]",
           'point' => 0,
-          'LoginStatus' =>"[[null]]",
+          'LoginDate' =>"[null]",
           'token' => $token
           ]);
           $user->save();
