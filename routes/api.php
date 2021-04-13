@@ -54,6 +54,8 @@ Route::get('/usersId', 'App\Http\Controllers\UserController@get');
 
 Route::post('/users', 'App\Http\Controllers\UserController@getUser');
 
+Route::post('/loginStatus', 'App\Http\Controllers\UserController@LoginStatus');
+
 Route::post('/logout', 'App\Http\Controllers\UserController@logout');
 
 Route::get('/user',function (Request $request) {

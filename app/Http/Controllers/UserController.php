@@ -54,6 +54,15 @@ class UserController extends Controller
       $message = ["正解です"];
       return  response($message); 
     }
+      
+    public function LoginStatus(Request $request){
+    $token = $request->token;
+    $getUserData = User::where("token",$token)->first();
+    $getUserData->timestamps = false;
+    $getUserData->LoginDate = $request->LoginDate;
+    $getUserData->save();
+     return response($getUserData);
+   }
 
     public function getUser(Request $request){
       $token = $request->token;

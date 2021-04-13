@@ -23,7 +23,8 @@ class User extends Authenticatable
         'AnsweredIds',
         'percent',
         'point',
-        'token'
+        'token',
+        'LoginStatus'
     ];
 
     /**
