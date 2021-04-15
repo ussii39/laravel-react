@@ -75,15 +75,16 @@ Route::post("/login",function(){
     $password = request()->get("password");
     $user = User::where("email",$email)->first();
     if ($user && Hash::check($password, $user->password)) {
-     $token = Str::random(10);
-     $user->token = $token;
-     $user->save();
-     return [
-      "token" => $token,
-      "user" => $user
-     ];
+        $token = Str::random(10);
+        $user->token = $token;
+        $user->save();
+        return [
+            "token" => $token,
+            "user" => $user
+        ];
     }else{
-     abort(401);
+        $message = ["メールアドレスが一致しません"];
+        return $message;
     }
    });
 
