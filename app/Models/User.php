@@ -24,7 +24,8 @@ class User extends Authenticatable
         'percent',
         'point',
         'token',
-        'LoginDate'
+        'LoginDate',
+        "WeekPoint"
     ];
 
     /**

@@ -36,10 +36,10 @@ class UserController extends Controller
         return response($userId);
     }
     public function point(Request $request){
-      
       $id = $request->id;
       $user = User::find($id);
       $user->point = $request->point;
+      $user->WeekPoint = $request->WeekPoint;
       $user->timestamps = false; 
       $user->save();
       return response($user);
@@ -71,7 +71,6 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
-
     $email = $request->email;
     $check = User::where("email",$email)->first(); 
       if(!$check){
@@ -84,12 +83,14 @@ class UserController extends Controller
           'AnsweredIds' =>"[[null]]",
           'point' => 0,
           'LoginDate' =>"[null]",
+          'WeekPoint' => "[]",
           'token' => $token
           ]);
           $user->save();
           return  response($user);
         }else{
-          return response("既に登録されています");
+          $message = ["既に登録されています"];
+          return $message;
         }
     }
 
