@@ -67,7 +67,11 @@ class UserController extends Controller
     public function getUser(Request $request){
       $token = $request->token;
       $getUserData = User::where("token",$token)->get();
-      return  response($getUserData);
+      if(empty($token)){
+        return response(["ログインしてください"]);
+      }else{
+        return  response($getUserData);
+      }
     }
 
     public function register(Request $request){
