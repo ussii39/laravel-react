@@ -11,17 +11,23 @@ class TodoController extends Controller
         $answer = Todo::all();
  
         return response($answer);
+    }   
+    
+    public function getAnswer(Request $request,$id){
+        $todo = Todo::find($id);
+        $todo->timestamps = false;
+ 
+        return response($todo);
     }    
  
     public function store(Request $request){
        $answer = $request->answer;
- 
- 
        $answerData = Todo::where("answer",$answer)->get();
+       $array = json_decode(json_encode($answerData), true);
        if ($answerData){
-          return response($answerData);
+          return response($array);
       }else{
-          return response($request);
+          return response($Answers);
       }
     }
     public function put(Request $request,$id){

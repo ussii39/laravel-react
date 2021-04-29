@@ -40,6 +40,8 @@ Route::put('question/{id}', 'App\Http\Controllers\QuestionsController@put');
 
 Route::post('answer', 'App\Http\Controllers\TodoController@store');
 
+Route::get('answer/{id}', 'App\Http\Controllers\TodoController@getAnswer');
+
 Route::put('setAnswerId/{id}', 'App\Http\Controllers\UserController@setUserIds');
 
 Route::put('selectlang/setAnswerId/{id}', 'App\Http\Controllers\UserController@setUserId');

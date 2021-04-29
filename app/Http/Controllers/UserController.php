@@ -9,9 +9,9 @@ use Illuminate\Support\Str;
 class UserController extends Controller
 {
     public function store(Request $request){
-
         $id = $request->id;
         $user = User::find($id);
+
         $user->percent = $request->percent;
         $user->timestamps = false; 
         $user->save();
@@ -73,8 +73,23 @@ class UserController extends Controller
     public function register(Request $request){
     $email = $request->email;
     $check = User::where("email",$email)->first(); 
-      if(!$check){
-        $token = Str::random(20);
+    // dd($check);
+    
+    // var_dump(array($check));
+  //   foreach($check as $key => $value){
+  //     echo $key . 'は' . $value . 'です。<br>';
+  // }
+    // foreach ($check as $key => $value){
+    // }
+
+    // var_dump($check);
+  //   $array1 = array("color" => "red", 2, 4);
+  //  $result = array_merge(array($check), $array1, array());
+  //  var_dump($result);
+
+
+    if(!$check){
+      $token = Str::random(20);
         $user = User::create([
           'name' => $request->name,
           'email' => $request->email,
